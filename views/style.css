@@ -1,4 +1,47 @@
-.testCSS { 
-    text-align: center;
-    border: solid red;
+body,html {
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
 }
+
+
+.bgimg {
+    height: 100%;
+
+    background: url("red_blue_explosion.jpg") black;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    background-size: 900px 800px;
+}
+
+.text {
+    font-family: Verdana;
+    color: aliceblue;
+}
+
+.main {
+    font-size: 24px
+}
+
+.fine {
+    font-size: 8px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.middle {
+    position: relative;
+    text-align: center;
+    top: 30%;
+}
+
+
+
+
