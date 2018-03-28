@@ -4,7 +4,6 @@ body,html {
     padding: 0%;
 }
 
-
 .bgimg {
     height: 100%;
 
@@ -44,4 +43,37 @@ body,html {
 
 
 
+/* ============== SEARCH BOX ================ */
+.user-form {
+  position: relative;
+  top: 150px;
+  display: block;
+  max-width: 188px;
+  margin: 50px auto;
+  text-align: center;
+}
 
+input.user-details {
+  margin: 5px 0 5px 1px;
+  text-align: center;
+  outline: 0;
+  border: 10px solid #F7F7F7;
+  box-shadow: 0 0 5px;
+  position: relative;
+}
+
+input.submit-button {
+  position: relative;
+  margin-top: 5px;
+  border: 10px solid #F7F7F7;
+  border: none;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  box-shadow: 0 0 5px;
+}
+
+/*=========================================*/
