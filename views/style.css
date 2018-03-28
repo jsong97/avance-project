@@ -64,7 +64,7 @@ body,html {
 /* ============== SEARCH BOX ================ */
 .user-form {
   position: relative;
-  top: 150px;
+  top: 300px;
   display: block;
   max-width: 188px;
   margin: 50px auto;
