@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Avance</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img class="logo" alt="Brand" src="/css/Alogo.png">
+          </a>
+        </div>
+        <li> <a href="/">Avance</a></li>
+        <li> <a href="/stories">Explore</a></li>
+        <li> <a href="/users/register">Register</a></li>
+        <li><a href="/users">Login</a></li>
+      </div>
+    </nav>
+    <div class="container"><br>
+      <hr>
+      <h1>Register</h1>
+      <form method="POST" action="/users/register">
+        <div id="form-group">
+          <label>Name:</label>
+          <input class="form-control" name="name" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Email:</label>
+          <input class="form-control" name="email" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Username:</label>
+          <input class="form-control" name="username" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Password:</label>
+          <input class="form-control" name="password" type="password"/>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit"/>
+      </form>
+      <footer>
+        <p>Copyright &copy; 2018</p>
+      </footer>
+    </div>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
