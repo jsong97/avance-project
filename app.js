@@ -12,9 +12,15 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ====== Routes ======
+// User login page
 let users = require('./routes/users');
 app.use('/users', users);
 
+// Stories page
+let stories = require('./routes/stories');
+app.use('/stories', stories);
+
+// Home page
 let main = require('./routes/main');
 app.use('/', main);
 
