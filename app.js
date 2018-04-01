@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,9 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 let users = require('./routes/users');
 app.use('/users', users);
 
-// Stories page
-let stories = require('./routes/stories');
-app.use('/stories', stories);
+// Explore page
+let explore = require('./routes/explore');
+app.use('/explore', explore);
 
 // Home page
 let main = require('./routes/main');
