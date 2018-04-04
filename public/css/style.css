@@ -1,3 +1,7 @@
+/* *{
+  border: solid red;
+} */
+
 body,html {
   height: 100%;
   margin: 0%;
@@ -7,6 +11,7 @@ body,html {
 nav li {
   list-style-type: none;
 }
+
 
 /* ========== background ========== */
 .bg-fullscreen {
@@ -74,7 +79,7 @@ nav li {
 
 
 
-/* ============== SEARCH BOX ================ */
+/* ============== SEARCH BOX ===========*/
 .user-form {
   position: relative;
   top: 10%;
@@ -111,5 +116,141 @@ input.submit-button {
   background-color: white;
   font-family: "Comic Sans MS";
 }
-
 /*=========================================*/
+
+
+/* ============= EXPLORE-PAGE ============*/
+.basic-info {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 0 0 2em 0;
+  border-bottom: 1px solid grey;
+}
+
+.updating-info {
+  padding: 0 1em 0 1em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+  background: #FBFBF7;
+  flex: 1;
+}
+
+.featured-projects, #slider, .slide-content{
+  border-bottom: 1px solid grey;
+  padding: 0 0 1.5em 0;
+  margin: 0 0 1.5em 0;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.featured_projects {
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide1 {background-image: url('autumn.jpeg');}
+.slide2 {background-image: url('beach.jpg');}
+.slide3 {background-image: url('canyon.jpg');}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content span {
+  font-size: 5rem;
+  color: #fff;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%%;
+  margin-top: 9em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent orange transparent transparent;
+  left: 0;
+  margin-left: 10em;
+}
+
+#arrow-right {
+  border-width: 30px 0px 30px 40px;
+  border-color: transparent transparent transparent orange;
+  right: 0;
+  margin-right: 11.4em;
+}
+
+.all-projects {
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5em;
+  /* grid-auto-rows: 20em; */
+  grid-auto-rows: minmax(20em, auto);
+  margin: 0 0 3em 0;
+}
+
+.all-projects > div {
+  background: #fff;
+  padding: 1em;
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+
+.all-projects > div:nth-child(odd){
+  background: #ddd;
+}
+
+.box1 {
+  grid-column: 1/3;
+}
+
+.box2 {
+  grid-row: 2/4;
+}
+
+.box3 {
+
+}
+
+.box4 {
+
+}
+
+.box5 {
+
+}
+
+.box6 {
+  grid-column: 2/4;
+}
+
+/* .nested {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 70px;
+  grid-gap: 0.5em;
+  padding: 1em;
+}
+
+.nested >div{
+  border: #333 1px solid;
+} */
