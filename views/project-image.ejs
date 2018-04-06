@@ -2,27 +2,48 @@
 <html>
   <head>
     <title>Avance</title>
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">
-            <img class="logo" alt="Brand" src="/css/Alogo.png">
-          </a>
-        </div>
-        <li> <a href="/">Avance</a></li>
-        <li> <a href="/explore">Explore</a></li>
-        <li> <a href="/users/register">Register</a></li>
-        <li><a href="/users">Login</a></li>
-      </div>
+    <div class="jumbotron header-background" style="margin-bottom: 0px;">
+      <h1 style="text-align:center">Avance</h1>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapse-target">
+        <a class="navbar-brand" href="/"><img class="logo" src="/css/Alogo.png"></a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
+              Discover
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+              <a class="dropdown-item" href="#">Our mission</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Our team</a>
+              <a class="dropdown-item" href="#">Support</a>
+              <a class="dropdown-item" href="#">Forum</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/explore">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users">Login</a>
+          </li>
+        </ul>
+    </div>
     </nav>
     <div class="container"><br>
       <hr>
       <!-- Code here -->
-      <h1> Project Image </h1>
+      <h1> Projet Image</h1>
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
@@ -30,5 +51,7 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
   </body>
 </html>
