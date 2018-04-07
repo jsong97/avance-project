@@ -21,6 +21,66 @@ nav li {
 
 }
 
+/* ============ Forum ============== */
+
+.popular-posts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 0.5em;
+  /* grid-auto-rows: 20em; */
+  /* grid-auto-rows: minmax(20em, auto); */
+  margin: 0 0 3em 0;
+  border-radius: 25px;
+}
+
+.forum-post {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+}
+
+.post-image {
+  width:130px;
+  height: 100px;
+  grid-column: 1;
+  grid-row: 1/4;
+  border-radius: 5px;
+}
+
+.post-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5em;
+  /* grid-auto-rows: minmax(20em, auto); */
+  margin: 1em 1em 1em 1em;
+}
+
+.post-title {
+  grid-column: 2/4;
+  padding: 0 0 5px 0;
+  border-bottom: 1px dashed grey;
+}
+
+.post-title a {
+  color: orange;
+  text-decoration: none;
+}
+
+.post-author {
+
+}
+
+.post-content {
+  font-style: italic;
+}
+
+.top-comment {
+  padding: 1em 1em 1em 1em;
+  font-style: italic;
+  display: block;
+}
+
+
 /* ========== background ========== */
 .bg-fullscreen {
   position: fixed;
@@ -43,7 +103,6 @@ nav li {
 .logo {
   width:30px;
   height:30px;
-
 }
 
 /* ========= text styling =========*/
