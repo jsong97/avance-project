@@ -5,6 +5,9 @@ router.get('/', function(req, res){
   res.render('explore');
 });
 
+router.get('/forum', function(req, res){
+  res.render('forum');
+})
 
 router.get('/:id', function(req, res){
   res.render('other-user');
