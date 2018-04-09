@@ -40,10 +40,11 @@
         </ul>
     </div>
     </nav>
-    <div class="container"><br>
+    <div class="container forum"><br>
       <hr>
       <!-- Code here -->
       <h1> Forum </h1>
+
       <div class="popular-posts">
         <div class="forum-post">
           <div class="post-info">
@@ -56,23 +57,77 @@
             <div class="post-author">
               <p>By Justin Song</p>
             </div>
+            <div class="forum-buttons">
+              <button type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>
+              <button type="button" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Share
+              </button>
+              <button type="button" class="btn btn-info btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Follow
+              </button>
+            </div>
             <div class="post-content">
               <p>I took this photo in Indonesia!</p>
             </div>
           </div>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>Omg amazing!</p>
+              <p>-Kathryn Teo</p>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>This is the best picture I've ever seen!</p>
+              <p>-Lingshen Luo</p>
+            </div>
+          </div>
         </div>
-        <div class="forum-post top-comment">
-          <p>Omg amazing!</p>
-          <p>-Kathryn Teo</p>
-          <button type="button" class="btn btn-primary btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Like
-          </button>
-          <button type="button" class="btn btn-success btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Share
-          </button>
-          <button type="button" class="btn btn-info btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Follow
-          </button>
+        <div class="additional-forum-info">
+          <div class="login-info forum-info-styling">
+            <h2> Login </h2>
+            <form method="POST" action="/users/login">
+              <div id="form-group">
+                <label>Username:</label>
+                <input class="form-control" name="username" type="text"/>
+              </div>
+              <div id="form-group">
+                <label>Password:</label>
+                <input class="form-control" name="password" type="password"/>
+              </div>
+              <input class="btn btn-primary" style="margin: 1em;" type="submit" value="Submit"/>
+            </form>
+            <p> Forgot your password? </p>
+            <a href="#">Click here to reset it</a>
+            <div class="dropdown-divider"></div>
+            <p> Not a member yet? </p>
+            <a href="/users/register">Click here to regsiter</a>
+          </div>
+          <div class="forum-tips forum-info-styling">
+            <h2> Tips </h2>
+            <p> Looking for some guides on how to improve your drawing? </p>
+            <p> Check out some of our <a href="#">stories</a> or read about us on <a href="#">Medium</a>!</p>
+          </div>
+          <div class="forum-categories forum-info-styling">
+            <h2> Categories </h2>
+            <p><a href="#">Drawing</a></p>
+            <p><a href="#">Painting</a></p>
+            <p><a href="#">Social</a></p>
+            <p><a href="#">Sketching</a></p>
+            <p><a href="#">Photography</a></p>
+          </div>
         </div>
         <div class="forum-post">
           <div class="post-info">
@@ -85,23 +140,43 @@
             <div class="post-author">
               <p>By Justin Song</p>
             </div>
+            <div class="forum-buttons">
+              <button type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>
+              <button type="button" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Share
+              </button>
+              <button type="button" class="btn btn-info btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Follow
+              </button>
+            </div>
             <div class="post-content">
               <p>I took this photo in Indonesia!</p>
             </div>
           </div>
-        </div>
-        <div class="forum-post top-comment">
-          <p>Omg amazing!</p>
-          <p>-Kathryn Teo</p>
-          <button type="button" class="btn btn-primary btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Like
-          </button>
-          <button type="button" class="btn btn-success btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Share
-          </button>
-          <button type="button" class="btn btn-info btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Follow
-          </button>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>Omg amazing!</p>
+              <p>-Kathryn Teo</p>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>This is the best picture I've ever seen!</p>
+              <p>-Lingshen Luo</p>
+            </div>
+          </div>
         </div>
         <div class="forum-post">
           <div class="post-info">
@@ -114,23 +189,43 @@
             <div class="post-author">
               <p>By Justin Song</p>
             </div>
+            <div class="forum-buttons">
+              <button type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>
+              <button type="button" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Share
+              </button>
+              <button type="button" class="btn btn-info btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Follow
+              </button>
+            </div>
             <div class="post-content">
               <p>I took this photo in Indonesia!</p>
             </div>
           </div>
-        </div>
-        <div class="forum-post top-comment">
-          <p>Omg amazing!</p>
-          <p>-Kathryn Teo</p>
-          <button type="button" class="btn btn-primary btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Like
-          </button>
-          <button type="button" class="btn btn-success btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Share
-          </button>
-          <button type="button" class="btn btn-info btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Follow
-          </button>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>Omg amazing!</p>
+              <p>-Kathryn Teo</p>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>This is the best picture I've ever seen!</p>
+              <p>-Lingshen Luo</p>
+            </div>
+          </div>
         </div>
         <div class="forum-post">
           <div class="post-info">
@@ -143,54 +238,60 @@
             <div class="post-author">
               <p>By Justin Song</p>
             </div>
-            <div class="post-content">
-              <p>I took this photo in Indonesia!</p>
-            </div>
-          </div>
-        </div>
-        <div class="forum-post top-comment">
-          <p>Omg amazing!</p>
-          <p>-Kathryn Teo</p>
-          <button type="button" class="btn btn-primary btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Like
-          </button>
-          <button type="button" class="btn btn-success btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Share
-          </button>
-          <button type="button" class="btn btn-info btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Follow
-          </button>
-        </div>
-        <div class="forum-post">
-          <div class="post-info">
-            <div class="post-image">
-              <img class="post-image" src="/css/beach.jpg">
-            </div>
-            <div class="post-title">
-              <a href="#">What do you think of my photo?</a>
-            </div>
-            <div class="post-author">
-              <p>By Justin Song</p>
+            <div class="forum-buttons">
+              <button type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+              </button>
+              <button type="button" class="btn btn-success btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Share
+              </button>
+              <button type="button" class="btn btn-info btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Follow
+              </button>
             </div>
             <div class="post-content">
               <p>I took this photo in Indonesia!</p>
             </div>
           </div>
-        </div>
-        <div class="forum-post top-comment">
-          <p>Omg amazing!</p>
-          <p>-Kathryn Teo</p>
-          <button type="button" class="btn btn-primary btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Like
-          </button>
-          <button type="button" class="btn btn-success btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Share
-          </button>
-          <button type="button" class="btn btn-info btn-sm">
-            <span class="glyphicon glyphicon-thumbs-up"></span> Follow
-          </button>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>Omg amazing!</p>
+              <p>-Kathryn Teo</p>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="votes">
+              <div class="arrow-up"></div>
+              <p>5</p>
+              <div class="arrow-down"></div>
+            </div>
+            <div class="top-comment">
+              <p>This is the best picture I've ever seen!</p>
+              <p>-Lingshen Luo</p>
+            </div>
+          </div>
         </div>
       </div>
+
+        <!-- <div class="forum-post top-comment">
+          <p>Omg amazing!</p>
+          <p>-Kathryn Teo</p>
+          <button type="button" class="btn btn-primary btn-sm">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Like
+          </button>
+          <button type="button" class="btn btn-success btn-sm">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Share
+          </button>
+          <button type="button" class="btn btn-info btn-sm">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Follow
+          </button>
+        </div> -->
+
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
