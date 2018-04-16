@@ -4,9 +4,6 @@
     <title>Avance</title>
   </head>
   <body>
-    <div class="jumbotron header-background" style="margin-bottom: 0px;">
-      <h1 style="text-align:center">Avance</h1>
-    </div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
         <span class="navbar-toggler-icon"></span>
@@ -46,11 +43,36 @@
       <!-- Make a timeline here -->
       <h1> Project </h1>
       <div class="project-timeline">
-      </div>
+        <section class="timeline">
+          <ol>
+            <li>
+              <div>
+                <time>1934</time>
+                Some content here
+              </div>
+            </li>
+
+            <!-- more list items here -->
+
+            <li></li>
+          </ol>
+
+          <div class="arrows">
+            <button class="arrow arrow__prev disabled" disabled>
+              <img src="/css/arrow_prev.svg" alt="prev timeline arrow">
+            </button>
+            <button style="margin-left: 50px" class="arrow arrow__next">
+              <img src="/css/arrow_next.svg" alt="next timeline arrow">
+            </button>
+          </div>
+        </section>
+
+,      </div>
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
     </div>
+    <script src="/js/timeline.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/js/main.js"></script>
