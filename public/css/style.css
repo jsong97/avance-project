@@ -503,15 +503,15 @@ input.submit-button {
 
 /*=================== DISPLAY IMAGE ====================*/
 .display-image {
-  width: 800px;
-  height: 800px;
+  width: 1100px;
 }
 
 .display-image img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   border: 2px solid #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  align: middle;
 }
 
 .display-image .image-description {
@@ -519,6 +519,7 @@ input.submit-button {
 }
 
 .display-image .image-info {
+  font-size: 13px;
 
 }
 
@@ -528,15 +529,12 @@ input.submit-button {
     box-sizing: border-box;
 }
 
-
-/* The actual timeline (the vertical ruler) */
 .timeline {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* The actual timeline (the vertical ruler) */
 .timeline::after {
     content: '';
     position: absolute;
@@ -548,7 +546,6 @@ input.submit-button {
     margin-left: -3px;
 }
 
-/* Container around content */
 .timeline-container {
     padding: 10px 40px;
     position: relative;
@@ -570,17 +567,14 @@ input.submit-button {
     z-index: 1;
 }
 
-/* Place the container to the left */
 .left {
     left: 0;
 }
 
-/* Place the container to the right */
 .right {
     left: 50%;
 }
 
-/* Add arrows to the left container (pointing right) */
 .left::before {
     content: " ";
     height: 0;
@@ -594,7 +588,6 @@ input.submit-button {
     border-color: transparent transparent transparent darkslategray;
 }
 
-/* Add arrows to the right container (pointing left) */
 .right::before {
     content: " ";
     height: 0;
@@ -608,12 +601,10 @@ input.submit-button {
     border-color: transparent darkslategray transparent transparent;
 }
 
-/* Fix the circle for containers on the right side */
 .right::after {
     left: -13px;
 }
 
-/* The actual content */
 .content {
     padding: 20px 20px;
     background-color: white;
@@ -623,13 +614,53 @@ input.submit-button {
     overflow: scroll;
 }
 
-.project-image {
-  display: block;
-  margin: auto;
-
-}
-
 .project-desc {
   font-weight: bold
 }
 
+.desc {
+  border-radius: 10px;
+  background-color: lightgoldenrodyellow;
+
+}
+
+
+/*============comments =================*/
+
+.comments {
+  border-radius: 10px;
+  border: black;
+  background-color: lightgrey;
+  padding-bottom: 20px;
+}
+
+.comment-box {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  display: block;
+}
+
+.comment {
+  font-size: 24px;
+  font-family: Verdana;
+
+}
+
+.commenter {
+
+}
+
+.reply{
+  color: lightgrey;
+  font-style: italic;
+}
+
+.reply-btn {
+  color: grey;
+}
+
+.by-line {
+  font-weight: bold;
+  font-color: darkgray;
+}
