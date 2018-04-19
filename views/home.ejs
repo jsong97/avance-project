@@ -1,37 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="/css/style.css">
-<link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css'>
+<html>
+  <head>
+    <title>Avance</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapse-target">
+        <a class="navbar-brand" href="/"><img class="logo" src="/css/Alogo.png"></a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
+              Discover
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+              <a class="dropdown-item" href="/explore/mission">Our mission</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/explore/team">Our team</a>
+              <a class="dropdown-item" href="/explore/support">Support</a>
+              <a class="dropdown-item" href="/explore/forum">Forum</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/explore">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/login">Login</a>
+          </li>
+        </ul>
+    </div>
+    </nav>
+    <!-- Progress Bar -->
+    <div class="container">
+      <ul class="progressbar">
+        <li class="active">Explore</li>
+        <li>Project</li>
+        <li>Image</li>
+      </ul>
+    </div>
+    <div class="container"><br>
+      <h1> Our Stories </h1>
+      <!-- Code here -->
+      <div class="basic-info">
+        <div class="updating-info">
+          Nurture. Create.
+        </div>
+        <div class="updating-info num-users">
+        </div>
+        <div class="updating-info num-completed">
+        </div>
+        <div class="updating-info num-developing">
+        </div>
+      </div>
+
+      <div class="featured-projects">
+        <div id="arrow-left" class="arrow"></div>
+        <div id="arrow-right" class="arrow"></div>
+        <div id="slider">
+          <div class="slide slide1">
+            <div class="slide-content">
+              <span> Image One </span>
+            </div>
+          </div>
+          <div class="slide slide2">
+            <div class="slide-content">
+              <span> Image Two </span>
+            </div>
+          </div>
+          <div class="slide slide3">
+            <div class="slide-content">
+              <span> Image Three </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="all-projects">
+        <div class="box1">
+          Project 1
+        </div>
+        <div class="box2">
+          Project 2
+        </div>
+        <div class="box3">
+          Project 3
+        </div>
+        <div class="box4">
+          Project 4
+        </div>
+        <div class="box5">
+          Project 5
+        </div>
+        <div class="box6">
+          Project 6
+        </div>
+        <div class="box7">
+          Project 7
+        </div>
+        <div class="box8">
+          Project 8
+        </div>
+        <div class="box9">
+          Project 9
+        </div>
 
 
-<head>
-  <meta charset="UTF-8">
-  <title>Avance</title>
-</head>
+      </div>
 
-<body>
-  <div class="bg-fullscreen">
-
-    <video muted autoplay class="video" id="explosion">
-      <source src="/css/color_explosion_on_white.mp4" type="video/mp4">
-    </video>
-    <a href="/"><img class="logo" src="/css/Alogo.png"/></a>
-    <h1 class="text main middle">Avance</h1>
-    <p class="text desc middle">Build your creative confidence.</p>
-    <h2 class="text main middle">COMING SOON</h2>
-    <p class="text desc middle"><a href="/users/register">Register now</a></p>
-
-    <form class="user-form">
-      <input type="text" class="user-details" placeholder="Name">
-      <input type="text" class="user-details" placeholder="Email">
-      <input type="submit" class="submit-button" value="Notify Me">
-    </form>
-
-    <p class="text fine footer">
-      Creators: Kathryn Teo, Justin Song, Lingshen Luo. Background video:
-      <a class="text fine" href="https://www.youtube.com/watch?v=n8H337Ls6Eo">Pink Pink</a>
-    </p>
-
-  </div>
-</body>
+      <footer>
+        <p>Copyright &copy; 2018</p>
+      </footer>
+    </div>
+    <script src="/js/explore-image.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </body>
 </html>
