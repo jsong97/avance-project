@@ -48,6 +48,23 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1> Support </h1>
+      <form method="POST" action="/users/register" id="usrform">
+        <div id="form-group">
+          <label>Name:</label>
+          <input class="form-control" name="name" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Email:</label>
+          <input class="form-control" name="email" type="text"/>
+        </div>
+        <textarea class="support-request" name="comment" form="usrform" rows="10" cols="140" placeholder="Enter text here..."></textarea>
+        <input class="btn btn-primary" type="submit">
+      </form>
+      <div class="contact-info">
+        <p> You can call us at: </br> 04222-04868 </p>
+        <p> Or email us at: </br> songj3@student.unimelb.edu.au </p>
+      </div>
+
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
