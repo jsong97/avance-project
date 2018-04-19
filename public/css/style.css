@@ -500,6 +500,10 @@ input.submit-button {
   background-color: yellow;
 }
 
+.progressbar li a {
+  text-decoration: none;
+}
+
 
 /*=================== DISPLAY IMAGE ====================*/
 .display-image {
@@ -654,13 +658,4 @@ input.submit-button {
 .reply{
   color: lightgrey;
   font-style: italic;
-}
-
-.reply-btn {
-  color: grey;
-}
-
-.by-line {
-  font-weight: bold;
-  font-color: darkgray;
 }
