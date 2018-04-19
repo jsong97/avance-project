@@ -2,6 +2,13 @@
   border: solid red;
 } */
 
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+}
+
 body,html {
   height: 100%;
   margin: 0%;
@@ -304,6 +311,11 @@ input.submit-button {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+}
+
+.slide-content a {
+  text-decoration: none;
 }
 
 .slide-content span {
@@ -326,6 +338,7 @@ input.submit-button {
   border-color: transparent orange transparent transparent;
   left: 0;
   margin-left: 10em;
+  margin-top: 13em;
 }
 
 #arrow-right {
@@ -333,6 +346,7 @@ input.submit-button {
   border-color: transparent transparent transparent orange;
   right: 0;
   margin-right: 11.4em;
+  margin-top: 13em;
 }
 
 .all-projects {
@@ -347,38 +361,63 @@ input.submit-button {
 }
 
 .all-projects > div {
-  background: #fff;
   padding: 1em;
   border: 2px solid #fcfcfc;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  background-size: cover;
+  cursor: pointer;
 }
 
-.all-projects > div:nth-child(odd){
+/* .all-projects > div:nth-child(odd){
   background: #ddd;
+} */
+
+.all-projects p {
+  width: 12em;
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+  text-align: center;
 }
 
 .box1 {
   grid-column: 1/3;
+  grid-row: 1/3;
+  background: url("anime_scenery.jpg");
 }
 
 .box2 {
-  grid-row: 2/4;
+  grid-row: 3/5;
+  background: url("anime_girl.jpg");
 }
 
 .box3 {
-
+  grid-row: 1/3;
+  background: url("grampians.png");
 }
 
 .box4 {
-
+  background: url("its_me.png");
 }
 
 .box5 {
-
+  background: url("flower.jpg");
 }
 
 .box6 {
   grid-column: 2/4;
+  background: url("aerial-field.jpg");
+}
+
+.box7 {
+  background: url("home_away.png");
+}
+
+.box8 {
+  background: url("clouds_anime_girl.jpg");
+}
+
+.box9 {
+  background: url("camera-clouds.jpg");
 }
 
 /*=================== TEAM DESCRIPTION ==================*/

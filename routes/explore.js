@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', function(req, res){
-  res.render('explore');
-});
-
 router.get('/forum', function(req, res){
   res.render('forum');
 });
