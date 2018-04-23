@@ -694,13 +694,14 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   font-size: 16px;
 }
 
-/* @media screen and (min-width: 768px){
+@media screen and (min-width: 768px){
 
   html{
     font-size: 62.5%;
   }
 }
 
+/*
 @media screen and (max-width: 767px){
 
   html{
@@ -712,19 +713,19 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 * demo page
 */
 
-/* @media screen and (min-width: 768px){
+@media screen and (min-width: 768px){
 
   html{
     font-size: 62.5%;
   }
-} */
+}
 
-@media screen and (max-width: 767px){
+/*@media screen and (max-width: 767px){
 
   html{
     font-size: 50%;
   }
-} */
+}*/
 
 .body-timeline{
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
