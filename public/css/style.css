@@ -529,6 +529,12 @@ input.submit-button {
 
 }
 
+/*==================== Login =======================*/
+
+#login-button {
+  margin: 2em;
+}
+
 /*==================== Project Page =======================*/
 
 #project-image-author {
