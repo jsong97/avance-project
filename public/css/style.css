@@ -25,7 +25,7 @@ nav li {
 }
 
 .header-background {
-  background-image: url('foggy-mountain.jpg');
+  background-image: url('/users/demo_user/images/foggy-mountain.jpg');
   background-size: cover;
   background: contain;
   width: 100%;
@@ -301,9 +301,9 @@ input.submit-button {
   background-repeat: no-repeat;
 }
 
-.slide1 {background-image: url('autumn.jpeg');}
-.slide2 {background-image: url('beach.jpg');}
-.slide3 {background-image: url('canyon.jpg');}
+.slide1 {background-image: url('users/demo_user/images/autumn.jpeg');}
+.slide2 {background-image: url('users/demo_user/images/beach.jpg');}
+.slide3 {background-image: url('users/demo_user/images/canyon.jpg');}
 
 .slide-content {
   display: flex;
@@ -382,42 +382,42 @@ input.submit-button {
 .box1 {
   grid-column: 1/3;
   grid-row: 1/3;
-  background: url("anime_scenery.jpg");
+  background: url("users/demo_user/images/anime_scenery.jpg");
 }
 
 .box2 {
   grid-row: 3/5;
-  background: url("anime_girl.jpg");
+  background: url("users/demo_user/images/anime_girl.jpg");
 }
 
 .box3 {
   grid-row: 1/3;
-  background: url("grampians.png");
+  background: url("users/demo_user/images/grampians.png");
 }
 
 .box4 {
-  background: url("its_me.png");
+  background: url("users/demo_user/images/its_me.png");
 }
 
 .box5 {
-  background: url("flower.jpg");
+  background: url("users/demo_user/images/flower.jpg");
 }
 
 .box6 {
   grid-column: 2/4;
-  background: url("aerial-field.jpg");
+  background: url("users/demo_user/images/aerial-field.jpg");
 }
 
 .box7 {
-  background: url("home_away.png");
+  background: url("users/demo_user/images/home_away.png");
 }
 
 .box8 {
-  background: url("clouds_anime_girl.jpg");
+  background: url("users/demo_user/images/clouds_anime_girl.jpg");
 }
 
 .box9 {
-  background: url("camera-clouds.jpg");
+  background: url("users/demo_user/images/camera-clouds.jpg");
 }
 
 /*=================== TEAM DESCRIPTION ==================*/
@@ -948,7 +948,7 @@ a {
 
     }
 
-/* Header 
+/* Header
 
 ----------------------------------------------*/
 
@@ -959,7 +959,7 @@ a {
 }
 
 
-/* My Project Page 
+/* My Project Page
 
 ----------------------------------------------*/
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,900,500);
