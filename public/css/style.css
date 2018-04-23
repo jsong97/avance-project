@@ -535,8 +535,14 @@ input.submit-button {
   margin: -2.5em 0 1em 0;
 }
 
+/*
 
-/*================= Timeline =====================*/
+Note: code for this timeline was taken from https://codepen.io/melnik909/pen/qPjwvq, from the website, http://freefrontend.com/css-timelines/#horizontal-timelines, which lists many different types of frontends. This code has been adjusted to fit in with our website, but by and large it remains the same.
+
+A tutorial on how to implement and create a timeline was also followed in the creation of this code: https://www.youtube.com/watch?v=eEybqzuh6Z0. While they use different timelines, the final implementation takes aspects from both.
+
+*/
+
 .timeline{
   --uiTimelineMainColor: var(--timelineMainColor, #222);
   --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
