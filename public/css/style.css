@@ -556,8 +556,8 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
 
   position: relative;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1.95rem;
+  padding-bottom: 1.95rem;
 }
 
 .timeline:before{
@@ -575,11 +575,11 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 }
 
 .timeline__group:not(:first-of-type){
-  margin-top: 4rem;
+  margin-top: 2.6rem;
 }
 
 .timeline__year{
-  padding: .5rem 1.5rem;
+  padding: .375rem .975rem;
   color: var(--uiTimelineSecondaryColor);
   background-color: var(--uiTimelineMainColor);
 
@@ -613,7 +613,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   left: 0;
 
   box-sizing: border-box;
-  padding: .5rem 1.5rem;
+  padding: .325rem .975rem;
   text-align: center;
 
   background-color: var(--uiTimelineMainColor);
@@ -621,19 +621,19 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 }
 
 .timeline__day{
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   display: block;
 }
 
 .timeline__month{
   display: block;
-  font-size: .8em;
+  font-size: .52em;
   text-transform: uppercase;
 }
 
 .timeline__post{
-  padding: 1.5rem 2rem;
+  padding: 0.975rem 1.3rem;
   border-radius: 2px;
   border-left: 3px solid var(--uiTimelineMainColor);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
@@ -726,7 +726,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 .body-timeline{
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.03rem;
   color: #222;
   background-color: #f0f0f0;
   margin: 0;
@@ -736,8 +736,8 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 .timeline__content p{
   margin-top: 0;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
+  margin-bottom: 0.975rem;
+  line-height: 0.975;
 }
 
 .timeline__content p:last-child{
@@ -757,9 +757,8 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 .main-container{
   max-width: 960px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
   margin-left: auto;
   margin-right: auto;
 }
