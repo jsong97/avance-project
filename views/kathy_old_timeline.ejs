@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Avance</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapse-target">
+        <a class="navbar-brand" href="/"><img class="logo" src="/css/avance_images/Alogo.png"></a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
+              Discover
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+              <a class="dropdown-item" href="/explore/mission">Our mission</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/explore/team">Our team</a>
+              <a class="dropdown-item" href="/explore/support">Support</a>
+              <a class="dropdown-item" href="/explore/forum">Forum</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/5">My Dashboard</a>
+          </li>
+        </ul>
+    </div>
+    </nav>
+    <div class="container">
+      <ul class="progressbar">
+        <li class="active">Login</li>
+        <li class="active">Dashboard</li>
+        <li class="active">Project</li>
+      </ul>
+    </div>
+    <div class="container"><br>
+      <h1>Anime Girls</h1>
+
+      <div>
+        <p class="project-desc">Description <input class="btn" type="button" value="Edit"/></p>
+        <p>I am trying to create more anime art so here is my project</p>
+
+      </div>
+      <br/><div>
+        <input class="btn btn-primary" type="button" value="Add image to project"
+               onclick="location.href='/users/5/myprojects/5/upload';"/>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-container left">
+          <div class="content">
+            <div class="projectimage">
+              <a href="/users/5/5/5"><img src="/css/users/demo_user/images/no-background-clouds-girl.png" alt="First image of this project" ></a>
+            </div>
+            <div class="projectimage-title">
+              <p>Sketch of Anime girl</p>
+              <p>Uploaded 19/04/2017</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="timeline-container right">
+          <div class="content">
+            <div class="projectimage">
+              <a href="/users/5/5/5"><img src="/css/users/demo_user/images/clouds_anime_girl.jpg" alt="Second image of this project"></a>
+            </div>
+            <div class="projectimage-title">
+              <p>Digital art- Anime girl</p>
+              <p>Uploaded 23/07/2017</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <footer>
+        <p>Copyright &copy; 2018</p>
+      </footer>
+    </div>
+    <script src="/js/timeline.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </body>
+</html>
+
+<!-- /*==================== Project Page =======================*/
+
+* {
+    box-sizing: border-box;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: darkslategray;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -13px;
+    background-color: white;
+    border: 2px solid darkslategray;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 18px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid darkslategray;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent darkslategray;
+}
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 18px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid darkslategray;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent darkslategray transparent transparent;
+}
+
+.right::after {
+    left: -13px;
+}
+
+.content {
+    padding: 20px 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    border: 2px solid darkslategray;
+    overflow: scroll;
+}
+
+.project-desc {
+  font-weight: bold
+}
+
+.desc {
+  border-radius: 10px;
+  background-color: lightgoldenrodyellow;
+
+}
+
+#project-image-author {
+  margin: -2.5em 0 1em 0;
+} -->

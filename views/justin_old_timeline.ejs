@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Avance</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="collapse-target">
+        <a class="navbar-brand" href="/"><img class="logo" src="/css/avance_images/Alogo.png"></a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
+              Discover
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdown_target">
+              <a class="dropdown-item" href="/explore/mission">Our mission</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/explore/team">Our team</a>
+              <a class="dropdown-item" href="/explore/support">Support</a>
+              <a class="dropdown-item" href="/explore/forum">Forum</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/5">My Dashboard</a>
+          </li>
+        </ul>
+    </div>
+    </nav>
+    <div class="container">
+      <ul class="progressbar">
+        <li class="active">Login</li>
+        <li class="active">Dashboard</li>
+        <li class="active">Project</li>
+      </ul>
+    </div>
+    <div class="container"><br>
+      <h1>Anime Girls</h1>
+
+      <div>
+        <p class="project-desc">Description <input class="btn" type="button" value="Edit"/></p>
+        <p>I am trying to create more anime art so here is my project</p>
+
+      </div>
+      <br/><div>
+        <input class="btn btn-primary" type="button" value="Add image to project"
+               onclick="location.href='/users/5/myprojects/5/upload';"/>
+      </div>
+
+      <div class="timeline">
+        <ul>
+          <li class="timeline-odd">
+            <span></span>
+            <div class="image-date">
+              12/04/2018
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="timeline-image image1"></div>
+            <div class="timeline-image-desc">Description Over Here<div>
+          </li>
+          <li class="timeline-even">
+            <span></span>
+            <div class="image-date">
+              12/04/2018
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="timeline-image image2"></div>
+            <div class="timeline-image-desc">Description<div>
+          </li>
+          <li class="timeline-odd">
+            <span></span>
+            <div class="image-date">
+              12/04/2018
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="timeline-image image3"></div>
+            <div class="timeline-image-desc">Description<div>
+          </li>
+        </ul>
+      </div>
+
+      <footer>
+        <p>Copyright &copy; 2018</p>
+      </footer>
+    </div>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </body>
+</html>
+
+
+<!-- @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+.timeline {
+  margin: 14em 40px;
+  height: 100em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.timeline ul {
+  list-style: none;
+  margin: 0;
+  padding: 1px 100px;
+  position: relative;
+  top: 40%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  font-size: 13px;
+}
+
+.timeline ul:before {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 100%;
+  width: 1px;
+  border: 1px dashed black;
+}
+
+/* .all-projects > div:nth-child(odd){
+  background: #ddd;
+} */
+
+.timeline ul li {
+  width: 35em;
+  height: 35em;
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+
+.timeline ul li.timeline-even {
+  margin: 50px -490px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 14px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .08)
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bea2e7+0,86b7e7+100 */
+  background: -moz-linear-gradient(top,  #bea2e7 0%, #86b7e7 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #bea2e7 0%,#86b7e7 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #bea2e7 0%,#86b7e7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bea2e7', endColorstr='#86b7e7',GradientType=0 ); /* IE6-9 */
+}
+
+.timeline ul li.timeline-odd{
+  margin: 50px 40px;
+  position: relative;
+  padding: 14px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .08)
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bea2e7+0,86b7e7+100 */
+  background: #bea2e7; /* Old browsers */
+  background-color: rgba(255, 255, 255, 0.2);
+  background: -moz-linear-gradient(top,  #bea2e7 0%, #86b7e7 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #bea2e7 0%,#86b7e7 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #bea2e7 0%,#86b7e7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bea2e7', endColorstr='#86b7e7',GradientType=0 ); /* IE6-9 */
+}
+
+.timeline ul li.timeline-even span {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 488px;
+  width: 0px;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.timeline-image{
+  height: 25em;
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+
+.image1 {
+  background: url('users/demo_user/images/no-background-clouds-girl.png');
+  background-size: cover;
+}
+.image2 {
+  background: url('users/demo_user/images/some-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image3 {
+  background: url('users/demo_user/images/clouds-girl-final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.timeline ul li.timeline-odd span {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -42px;
+  width: 0px;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.timeline ul li span:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  left: -5px;
+  top: -5px;
+  background: #86b7e7;
+}
+
+.timeline ul li span:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  left: -5px;
+  top: -5px;
+  background: #86b7e7;
+}
+
+.timeline ul li span:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 50%;
+  left: -5px;
+  top: 100%;
+  background: #86b7e7;
+}
+
+.timeline-image-desc {
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  padding: 1em;
+} -->
