@@ -694,12 +694,12 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   font-size: 16px;
 }
 
-@media screen and (min-width: 768px){
+/* @media screen and (min-width: 768px){
 
   html{
     font-size: 62.5%;
   }
-}
+} */
 
 /*
 @media screen and (max-width: 767px){
@@ -709,9 +709,6 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   }
 }
 
-/*
-* demo page
-*/
 
 @media screen and (min-width: 768px){
 
@@ -731,7 +728,6 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
   font-size: 1.6rem;
   color: #222;
-
   background-color: #f0f0f0;
   margin: 0;
   -webkit-overflow-scrolling: touch;
