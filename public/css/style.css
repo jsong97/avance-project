@@ -159,7 +159,26 @@ nav li {
 
 
 
-/* ========== background ========== */
+/* ========== overall styling ========== */
+
+.project-title-header {
+  height: 8em;
+  width: 100%;
+  margin-bottom: 1em;
+  border-bottom: solid black 2px;
+}
+
+.project-title-header h1 {
+  background: -webkit-linear-gradient(#bea2e7, #9198e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.by-line {
+  margin-top: -2em;
+  font-size: 20px;
+}
+
 .bg-fullscreen {
   position: fixed;
   top: 0;
@@ -419,6 +438,51 @@ input.submit-button {
 .box9 {
   background: url("users/demo_user/images/camera-clouds.jpg");
 }
+
+
+/*=================== MODAL FOR EXPLORE PAGE ==================*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #f0f0f0;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+
 
 /*=================== TEAM DESCRIPTION ==================*/
 .team-descriptions {
@@ -821,7 +885,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 }
 
-/*============comments =================*/
+/*============ comments =================*/
 
 .comments {
   border-radius: 10px;
