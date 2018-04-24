@@ -12,7 +12,8 @@ all_projects.forEach(function(project){
   // // will implement this when we have databases
   // project.addEventListener('click', function(){
   //
-  //   // var project_id = this.getAttribute('project-id');
+  //   var project_id = this.getAttribute('project-id');
+  //   ... in the onclick function you display the right content
   // })
 
   project.onclick = function() {
