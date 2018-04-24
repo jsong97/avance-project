@@ -737,7 +737,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 .timeline__content p{
   margin-top: 0;
   margin-bottom: 0.975rem;
-  line-height: 0.975;
+  line-height: 1.5rem;
 }
 
 .timeline__content p:last-child{
@@ -788,7 +788,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   height: 25em;
   /* border: 2px solid #86b7e7; */
   border: 2px solid transparent;
-  border-image: linear-gradient(0deg, #ff0, #f0f);
+  border-image: linear-gradient(0deg, #bea2e7, #9198e5);
   border-image-slice: 1;
   border-radius: 3px;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
