@@ -415,20 +415,20 @@ input.submit-button {
 }
 
 .box4 {
-  background: url("users/demo_user/images/its_me.png");
+  background: url("users/demo_user/images/its_me_final.png");
 }
 
 .box5 {
-  background: url("users/demo_user/images/flower.jpg");
+  background: url("users/demo_user/images/dark_flower_final.png");
 }
 
 .box6 {
   grid-column: 2/4;
-  background: url("users/demo_user/images/aerial-field.jpg");
+  background: url("users/demo_user/images/aerial_field_color.png");
 }
 
 .box7 {
-  background: url("users/demo_user/images/home_away.png");
+  background: url("users/demo_user/images/home_away_final.png");
 }
 
 .box8 {
@@ -436,7 +436,7 @@ input.submit-button {
 }
 
 .box9 {
-  background: url("users/demo_user/images/camera-clouds.jpg");
+  background: url("users/demo_user/images/photos_wild_final.png");
 }
 
 
@@ -851,19 +851,164 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   cursor: pointer;
 }
 
+/* Now for all the images hahahah */
+
+/* Cloud Girl*/
 .image1 {
   background: url('users/demo_user/images/no-background-clouds-girl.png');
   background-size: cover;
 }
-
 .image2 {
   background: url('users/demo_user/images/some-background.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 .image3 {
   background: url('users/demo_user/images/clouds-girl-final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Anime Scenery */
+.image4{
+  background: url('users/demo_user/images/anime_scenery_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image5{
+  background: url('users/demo_user/images/anime_scenery_b_w.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image6{
+  background: url('users/demo_user/images/anime_scenery.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* the Grampians*/
+.image7 {
+  background: url('users/demo_user/images/grampians_paint.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image8 {
+  background: url('users/demo_user/images/grampians_b_w.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image9 {
+  background: url('users/demo_user/images/grampians.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Summer Girl, Anime Girl 1*/
+/* For some reason background-size: cover doesn't work here.
+I'll debug it some other time*/
+.image10 {
+  background: url('users/demo_user/images/anime_girl_sketch.png');
+  background-size: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image11 {
+  background: url('users/demo_user/images/anime_girl_black_and_white.png');
+  background-size: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image12 {
+  background: url('users/demo_user/images/anime_girl.jpg');
+  background-size: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+/* Its Me*/
+.image13 {
+  background: url('users/demo_user/images/its_me_teaser.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image14 {
+  background: url('users/demo_user/images/its_me.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image15 {
+  background: url('users/demo_user/images/its_me_final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Dark flower*/
+.image16 {
+  background: url('users/demo_user/images/flower.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image17 {
+  background: url('users/demo_user/images/dark_flower_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image18 {
+  background: url('users/demo_user/images/dark_flower_final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Aerial Field */
+.image19 {
+  background: url('users/demo_user/images/aerial-field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image20 {
+  background: url('users/demo_user/images/aerial_field_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image21 {
+  background: url('users/demo_user/images/aerial_field_color.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Home Away */
+.image22 {
+  background: url('users/demo_user/images/home_away.png');
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image23 {
+  background: url('users/demo_user/images/home_away_sketch.png');
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image24 {
+  background: url('users/demo_user/images/home_away_final.png');
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+/* Photos in the Wild */
+.image25 {
+  background: url('users/demo_user/images/camera-clouds.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image26 {
+  background: url('users/demo_user/images/photos_wild_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image27 {
+  background: url('users/demo_user/images/photos_wild_final.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
