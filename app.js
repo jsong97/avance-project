@@ -5,9 +5,21 @@ const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
 
+// Database Setup
+const config = require('./config/database');
+var mongoose = require('mongoose');
+mongoose.connect(config.database);
+let db = mongoose.connection;
+
+
+
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
+
 
 // Set Public Folder
 app.use(express.static(path.join(__dirname, 'public')));
