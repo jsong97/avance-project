@@ -33,6 +33,13 @@ router.post('/login', function(req, res, next){
   })(req, res, next);
 });
 
+// Logout Process
+router.get('/logout', function(req, res){
+  req.logout();
+  req.flash('success', 'You are logged out');
+  res.redirect('/');
+});
+
 // register route
 router.get('/register', function(req, res){
   res.render('register', {
@@ -46,9 +53,7 @@ router.post('/register', controller.createUser);
 // after login
 router.get('/:id', function(req, res){
   // res.render('myprojects');
-  res.render('sampledashboard', {
-    users:users
-  });
+  res.render('sampledashboard');
 });
 
 router.get('/:id/:id', function(req, res){
@@ -70,7 +75,6 @@ router.post('/:id/:id/upload', function(req, res){
 router.get('/:id/:id/:id', function(req, res){
   res.render('project-image');
 });
-
 
 
 module.exports = router;
