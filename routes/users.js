@@ -8,6 +8,7 @@ var controller = require('../controllers/controller.js');
 
 
 let User = require('../models/user');
+let Project = require('../models/project');
 
 // changing login for now
 router.get('/login', function(req, res){
@@ -47,20 +48,42 @@ router.get('/register', function(req, res){
   });
 });
 
-// still need to create a strategy
+// create a user
 router.post('/register', controller.createUser);
+
+// add a project
+router.get('/:id/newproject', function(req, res){
+  var id = req.params.id;
+  res.render('newproject', {
+    title: "New Project",
+    userID: id
+  });
+});
+
+router.post('/:id/newproject', controller.createProject);
 
 // after login
 router.get('/:id', function(req, res){
   // res.render('myprojects');
-  res.render('sampledashboard');
+  Project.find({}, function(err, projects){
+    if(err){
+      console.log(err);
+    } else{
+      res.render('sampledashboard', {
+        title: 'My Projects',
+        projects: projects
+      });
+    }
+  });
 });
+
 
 router.get('/:id/:id', function(req, res){
   res.render('project');
 });
 
-// add Project
+
+// add an image to a project
 router.get('/:id/:id/upload', function(req, res){
   res.render('upload', {
     title: 'Add Project'

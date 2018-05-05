@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true}));
 
 // Bring in Models
 let User = require('./models/user');
+let Project = require('./models/project');
 
 // Session config
 app.use(session({

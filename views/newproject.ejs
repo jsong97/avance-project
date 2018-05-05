@@ -64,10 +64,18 @@
     </div>
     <div class="container"><br>
       <!-- Code here -->
-      <h1><%=user.name%></h1>
-      <ul>
-        <button class="btn btn-primary">New Project</button>
-      </ul>
+      <h1><%=title%></h1>
+      <form method="POST" action="/<%=userID%>/newproject">
+        <div id="form-group">
+          <label>Project Name:</label>
+          <input class="form-control" name="name" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Description:</label>
+          <input class="form-control" name="description" type="text"/>
+        </div>
+        <input id="login-button" class="btn btn-primary" type="submit" value="Submit"/>
+      </form>
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
