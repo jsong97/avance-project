@@ -72,6 +72,11 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// global user variable
+app.get("*", function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Set Public Folder
 app.use(express.static(path.join(__dirname, 'public')));

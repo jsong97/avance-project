@@ -45,7 +45,10 @@ router.post('/register', controller.createUser);
 
 // after login
 router.get('/:id', function(req, res){
-  res.render('myprojects');
+  // res.render('myprojects');
+  res.render('sampledashboard', {
+    users:users
+  });
 });
 
 router.get('/:id/:id', function(req, res){

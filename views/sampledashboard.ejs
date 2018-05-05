@@ -37,35 +37,22 @@
         </ul>
     </div>
     </nav>
+    <!-- Progress Bar -->
     <div class="container">
       <ul class="progressbar">
-        <li class="active">Login</li>
-        <li>Dashboard</li>
+        <li class="active">Explore</li>
         <li>Project</li>
+        <li>Image</li>
       </ul>
     </div>
-    <div class="container">
-      <br>
-      <hr>
-      <h1>Login</h1>
-      <h1><%=title%></h2>
+    <div class="container"><br>
+      <!-- Code here -->
+      <h1><%=user.name%></h1>
       <ul>
         <% users.forEach(function(user){ %>
-          <li><%= user.name%> - <%=user.username%></li>
+          <a href='/<%=user.username%>'>
         <% }); %>
       </ul>
-      <form method="POST" action="/users/login">
-        <div id="form-group">
-          <label>Username:</label>
-          <input class="form-control" name="username" type="text"/>
-        </div>
-        <div id="form-group">
-          <label>Password:</label>
-          <input class="form-control" name="password" type="password"/>
-        </div>
-        <!-- <input class="btn btn-primary" type="submit" value="Login" onclick="location.href='/users/5';"/> -->
-        <input id="login-button" class="btn btn-primary" value="Login" type="submit">
-      </form>
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
