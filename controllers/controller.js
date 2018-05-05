@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('users');
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 const fetchHome = (req, res) => {
   res.render("home");
@@ -8,20 +12,49 @@ const fetchHome = (req, res) => {
 // Registration and making new users
 var createUser = function(req, res){
   console.log(req.body);
-  var user = new User({
-    "name":req.body.name,
-    "username":req.body.username,
-    "password":req.body.password,
-    "email":req.body.email
-  });
-  user.save(function(err, newUser){
-    if(!err){
-      res.send(newUser);
-      res.redirect('/');
-    }else {
-      res.sendStatus(400);
-    }
-  });
+  const name = req.body.name;
+  const username = req.body.username;
+  const password = req.body.password;
+  const email = req.body.email;
+
+  req.checkBody('name', 'Name is required').notEmpty();
+  req.checkBody('username', 'Username is required').notEmpty();
+  req.checkBody('password', 'Password is required').notEmpty();
+  req.checkBody('email', 'Email is required').notEmpty();
+  req.checkBody('email', 'Email is not valid').isEmail();
+
+  let errors = req.validationErrors();
+
+  if (errors){
+    res.render('register', {
+      errors:errors
+    });
+  } else {
+    let newUser = new User({
+      name:name,
+      username: username,
+      password: password,
+      email: email
+    });
+
+    bcrypt.genSalt(10, function(err, salt){
+      bcrypt.hash(newUser.password, salt, function(err, hash){
+        if(err){
+          console.log(err);
+        }
+        newUser.password = hash;
+        newUser.save(function(err){
+          if(err){
+            console.log(err);
+            return;
+          } else {
+            req.flash('success', 'You are now registered and log in');
+            res.redirect('/users/login');
+          }
+        });
+      });
+    });
+  }
 }
 
 
