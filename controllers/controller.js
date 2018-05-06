@@ -91,7 +91,8 @@ var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
   const author = req.user._id;
-  const description = req.body.description
+  const description = req.body.description;
+  //const file = req.body.picture;
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('description', 'Description is required').notEmpty();

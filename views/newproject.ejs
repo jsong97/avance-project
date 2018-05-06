@@ -66,7 +66,7 @@
       <!-- Code here -->
       <h1><%=title%></h1>
       <!-- <form method="POST" action="/<%=userID%>/newproject"> -->
-      <form method="POST" action="/projects/newproject">
+      <form method="POST" enctype="multipart/form-data" action="/projects/newproject">
         <div id="form-group">
           <label>Project Name:</label>
           <input class="form-control" name="name" type="text"/>
@@ -74,6 +74,10 @@
         <div id="form-group">
           <label>Description:</label>
           <input class="form-control" name="description" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Picture:</label>
+          <input class="form-control" name="picture" type="file"/>
         </div>
         <input id="login-button" class="btn btn-primary" type="submit" value="Submit"/>
       </form>
