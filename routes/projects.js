@@ -40,9 +40,12 @@ router.post('/newproject', controller.createProject);
 // Get single project
 router.get('/:id', function(req, res){
   Project.findById(req.params.id, function(err, project){
-    res.render('project', {
-      project: project
-    })
+    User.findById(project.author, function(err, user){
+      res.render('project', {
+        project: project,
+        author: user.name
+      });
+    });
     return;
   });
 });
