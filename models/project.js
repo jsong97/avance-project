@@ -9,4 +9,4 @@ var projectSchema = new mongoose.Schema(
 );
 
 // the model is called users
-module.exports = mongoose.model('projects', projectSchema);
+let Project = module.exports = mongoose.model('Project', projectSchema);

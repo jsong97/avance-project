@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: false}));
 
 
 // Bring in Models
@@ -90,6 +90,9 @@ app.use('/users', users);
 // Explore page
 let explore = require('./routes/explore');
 app.use('/explore', explore);
+
+let project = require('./routes/projects');
+app.use('/projects', project);
 
 // Home page
 let main = require('./routes/main');

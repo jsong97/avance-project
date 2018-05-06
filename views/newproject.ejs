@@ -65,10 +65,15 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1><%=title%></h1>
-      <form method="POST" action="/<%=userID%>/newproject">
+      <!-- <form method="POST" action="/<%=userID%>/newproject"> -->
+      <form method="POST" action="/projects/newproject">
         <div id="form-group">
           <label>Project Name:</label>
           <input class="form-control" name="name" type="text"/>
+        </div>
+        <div id="form-group">
+          <label>Author:</label>
+          <input class="form-control" name="author" type="text"/>
         </div>
         <div id="form-group">
           <label>Description:</label>

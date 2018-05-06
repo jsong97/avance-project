@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
-// this is the 'User' collection in mLab
-var User = mongoose.model('users');
+// this is the 'User' model
+var User = mongoose.model('User');
 
-// this is the 'Project' collection in mLab
-var Project = mongoose.model('projects');
+// this is the 'Project' model
+var Project = mongoose.model('Project');
 
 
 const express = require('express');
@@ -90,10 +90,11 @@ var findOneUser = function(req, res){
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
-  const author = req.user.username;
+  const author = req.body.author;
   const description = req.body.description
 
   req.checkBody('name', 'Name is required').notEmpty();
+  req.checkBody('author', 'Author is required').notEmpty();
   req.checkBody('description', 'Description is required').notEmpty();
 
   let errors = req.validationErrors();
@@ -108,17 +109,16 @@ var createProject = function(req, res){
       author:author,
       description:description
     });
+    newProject.save(function(err){
+      if(err){
+        console.log(err);
+        return;
+      } else {
+        req.flash('success', 'You have made a new project');
+        res.redirect('/');
+      }
+    });
   }
-
-  newProject.save(function(err){
-    if(err){
-      console.log(err);
-      return;
-    } else {
-      req.flash('success', 'You have made a new project');
-      res.redirect('/');
-    }
-  });
 }
 
 module.exports = {

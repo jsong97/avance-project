@@ -10,5 +10,5 @@ var imageSchema = new mongoose.Schema(
   }
 );
 
-// the model is called users
-module.exports = mongoose.model('users', userSchema);
+// the model is called Image
+let Image = module.exports = mongoose.model('Image', imageSchema);
