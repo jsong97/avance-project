@@ -34,17 +34,17 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/users/myprojects">Dashboard</a>
+              <a class="nav-link" href="/myprojects">Dashboard</a>
             </li>
             <li>
-              <a class="nav-link" href="/users/logout">Logout</a>
+              <a class="nav-link" href="/logout">Logout</a>
             </li>
           <% }  else{ %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/register">Register</a>
+              <a class="nav-link" href="/register">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/users/login">Login</a>
+              <a class="nav-link" href="/login">Login</a>
             </li>
           <% } %>
         </ul>
@@ -53,7 +53,7 @@
 
     <%- messages('my_message_template', locals) %>
 
-    
+
     <!-- Progress Bar -->
     <div class="container">
       <ul class="progressbar">
@@ -65,7 +65,7 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1> Support </h1>
-      <form method="POST" action="/users/register" id="usrform">
+      <form method="POST" action="/register" id="usrform">
         <div id="form-group">
           <label>Name:</label>
           <input class="form-control" name="name" type="text"/>

@@ -34,17 +34,17 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/users/myprojects">Dashboard</a>
+              <a class="nav-link" href="/myprojects">Dashboard</a>
             </li>
             <li>
-              <a class="nav-link" href="/users/logout">Logout</a>
+              <a class="nav-link" href="/logout">Logout</a>
             </li>
           <% }  else{ %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/register">Register</a>
+              <a class="nav-link" href="/register">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/users/login">Login</a>
+              <a class="nav-link" href="/login">Login</a>
             </li>
           <% } %>
         </ul>
@@ -70,10 +70,6 @@
         <div id="form-group">
           <label>Project Name:</label>
           <input class="form-control" name="name" type="text"/>
-        </div>
-        <div id="form-group">
-          <label>Author:</label>
-          <input class="form-control" name="author" type="text"/>
         </div>
         <div id="form-group">
           <label>Description:</label>

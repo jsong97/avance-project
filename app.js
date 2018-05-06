@@ -83,10 +83,6 @@ app.get("*", function(req, res, next){
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ====== Routes ======
-// User login page
-let users = require('./routes/users');
-app.use('/users', users);
-
 // Explore page
 let explore = require('./routes/explore');
 app.use('/explore', explore);

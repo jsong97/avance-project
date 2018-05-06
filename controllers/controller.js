@@ -56,7 +56,7 @@ var createUser = function(req, res){
             return;
           } else {
             req.flash('success', 'You are now registered and log in');
-            res.redirect('/users/login');
+            res.redirect('/login');
           }
         });
       });
@@ -90,11 +90,10 @@ var findOneUser = function(req, res){
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
-  const author = req.body.author;
+  const author = req.user.username;
   const description = req.body.description
 
   req.checkBody('name', 'Name is required').notEmpty();
-  req.checkBody('author', 'Author is required').notEmpty();
   req.checkBody('description', 'Description is required').notEmpty();
 
   let errors = req.validationErrors();
