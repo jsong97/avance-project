@@ -4,6 +4,10 @@
     <title>Avance</title>
   </head>
   <body>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse-target">
         <span class="navbar-toggler-icon"></span>
@@ -28,15 +32,28 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Explore</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/login">Login</a>
-          </li>
+          <% if (user) { %>
+            <li>
+              <a class="nav-link" href="/myprojects">Dashboard</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          <% }  else{ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          <% } %>
         </ul>
     </div>
     </nav>
+
+    <%- messages('my_message_template', locals) %>
+
+
     <div class="container">
       <ul class="progressbar">
         <li class="active">Register</li>
@@ -48,14 +65,10 @@
       <hr>
       <!-- Code here -->
       <h1>Register</h1>
-      <form method="POST" action="/users/register">
+      <form method="POST" action="/register">
         <div id="form-group">
           <label>Name:</label>
           <input class="form-control" name="name" type="text"/>
-        </div>
-        <div id="form-group">
-          <label>Email:</label>
-          <input class="form-control" name="email" type="text"/>
         </div>
         <div id="form-group">
           <label>Username:</label>
@@ -65,7 +78,11 @@
           <label>Password:</label>
           <input class="form-control" name="password" type="password"/>
         </div>
-        <input class="btn btn-primary" type="submit" value="Register" onclick="location.href='../users/5';"/>
+        <div id="form-group">
+          <label>Email:</label>
+          <input class="form-control" name="email" type="text"/>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register"/>
       </form>
       <footer>
         <p>Copyright &copy; 2018</p>

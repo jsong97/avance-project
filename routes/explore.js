@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+var User = require('../models/user');
 
-router.get('/forum', function(req, res){
-  res.render('forum');
+router.get('/forum', function(req, res, next){
+  var users = User.find();
+  res.render('forum', { title: 'Users', users: users});
 });
 
 router.get('/mission', function(req, res){

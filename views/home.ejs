@@ -32,15 +32,25 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Explore</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/login">Login</a>
-          </li>
+          <% if (user) { %>
+            <li>
+              <a class="nav-link" href="/myprojects">Dashboard</a>
+            </li>
+            <li>
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          <% }  else{ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          <% } %>
         </ul>
     </div>
     </nav>
+
     <!-- Progress Bar -->
     <div class="container">
       <ul class="progressbar">
@@ -49,6 +59,10 @@
         <li>Image</li>
       </ul>
     </div>
+    <!-- ============ -->
+
+    <%- messages('my_message_template', locals) %>
+
     <div class="container"><br>
       <h1> Our Stories </h1>
       <!-- Code here -->
