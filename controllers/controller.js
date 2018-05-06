@@ -90,7 +90,7 @@ var findOneUser = function(req, res){
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
-  const author = req.user.username;
+  const author = req.user._id;
   const description = req.body.description
 
   req.checkBody('name', 'Name is required').notEmpty();
