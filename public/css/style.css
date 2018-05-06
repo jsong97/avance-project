@@ -1,4 +1,4 @@
-/* *{
+, ensureAuthenticated,/* *{
   border: solid red;
 } */
 
@@ -23,7 +23,7 @@ body,html {
 .alert {
   margin: auto;
   margin-top: 2em;
-  border: 3px solid green;
+  border: 3px solid;
   padding: 10px;
   text-align: left;
   width: 80%;
