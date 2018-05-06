@@ -53,7 +53,7 @@
 
     <%- messages('my_message_template', locals) %>
 
-    
+
     <!-- Progress Bar -->
     <div class="container">
       <ul class="progressbar">
@@ -64,36 +64,19 @@
     </div>
     <div class="container"><br>
       <!-- Code here -->
-      <h1> Meet our amazing team! </h1>
-      <div class="team-descriptions">
-        <div class="member">
-          <img src="/css/users/demo_user/images/cat.jpg">
-          <div class="team-profile-image">
-          </div>
-          <div class="member-description">
-            <h3> Kathryn Teo </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
+      <h1><%=title%></h1>
+      <!-- <form method="POST" action="/<%=userID%>/newproject"> -->
+      <form method="POST" action="/projects/newproject">
+        <div id="form-group">
+          <label>Project Name:</label>
+          <input class="form-control" name="name" type="text"/>
         </div>
-        <div class="member">
-          <img src="/css/users/demo_user/images/cat.jpg">
-          <div class="team-profile-image">
-          </div>
-          <div class="member-description">
-            <h3> Lingshen Luo </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
+        <div id="form-group">
+          <label>Description:</label>
+          <input class="form-control" name="description" type="text"/>
         </div>
-        <div class="member">
-          <img src="/css/users/demo_user/images/cat.jpg">
-          <div class="team-profile-image">
-          </div>
-          <div class="member-description">
-            <h3> Justin Song </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </div>
-      </div>
+        <input id="login-button" class="btn btn-primary" type="submit" value="Submit"/>
+      </form>
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
