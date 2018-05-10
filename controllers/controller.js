@@ -1,14 +1,10 @@
 var mongoose = require('mongoose');
-//var multer = require('multer');
-var fs = require('fs');
 
 // this is the 'User' model
 var User = mongoose.model('User');
 
 // this is the 'Project' model
 var Project = mongoose.model('Project');
-
-//var Image = mongoose.model('Image');
 
 
 const express = require('express');
@@ -94,21 +90,14 @@ var findOneUser = function(req, res){
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
-
-    User.find({username: req.params.username}, (err, user) => {
-        console.log("in controller create proj");
-        console.log(user);
-        if (err) {
-            return;
-        }
-  const author = user._id;
-  const description = req.body.description;
-  //const file = req.body.picture;
+  const author = req.user._id;
+  const description = req.body.description
 
   req.checkBody('name', 'Name is required').notEmpty();
   req.checkBody('description', 'Description is required').notEmpty();
 
   let errors = req.validationErrors();
+
   if (errors){
     res.render('newproject', {
       errors:errors
@@ -131,38 +120,10 @@ var createProject = function(req, res){
   }
 }
 
-var uploadImage = function(req, res) {
-  let time = new Date();
-  const name = req.body.name;
-  //const projectId = req.params.id; //project id
-  const imageDescription = req.body.description;
-  const imageData = fs.readFileSync(req.body.fileToUpload); //change to path
-  const uploadTime = time.toLocaleString();
-
-  let newImage = new Image({
-    name:name,
-    //projectId:projectId,
-    imageDescription:imageDescription,
-    imageData:imageData,
-    uploadTime:uploadTime
-    });
-
-
-  newImage.save(function(err) {
-    if (err) {
-      res.flash("Something went wrong!");
-    }
-    res.end("File uploaded sucessfully!.");
-  });
-
-
-}
-
 module.exports = {
   fetchHome,
   createUser,
   findAllUsers,
   findOneUser,
-  createProject,
-  uploadImage
+  createProject
 };
