@@ -22,6 +22,7 @@ router.get("/", function(req, res){
   res.render('home');
 });
 
+
 // changing login for now
 router.get('/login', function(req, res){
   User.find({}, function(err, users){
@@ -66,32 +67,32 @@ router.post('/register', controller.createUser);
 // after login
 router.get('/:username', ensureAuthenticated, function(req, res){
   // res.render('myprojects');
-    console.log(req.params.username);
+  console.log(req.params.username);
   User.find({username: req.params.username}, (err, user) => {
-      console.log("in main get username");
-      console.log(user);
-      if (err) {
-          return;
-      }
-        Project.find({author: user._id}, function(err, projects){
-            if(err){
-                res.render('samepledashboard', {
-                    title: 'My Projects',
-                    projects: false,
-                    author: user
-                });
-            } else{
-                res.render('sampledashboard', {
-                    title: 'My Projects',
-                    projects: projects,
-                    author: user
-                });
-            }
+    console.log("in main get username");
+    console.log(user);
+    if (err) {
+      return;
+    }
+    Project.find({}, function(err, projects){
+      if(err){
+        res.render('samepledashboard', {
+          title: 'My Projects',
+          projects: false,
+          author: user
         });
-        if(err){
-            console.log(err);
-        }
+      } else{
+        res.render('sampledashboard', {
+          title: 'My Projects',
+          projects: projects,
+          author: user
+        });
+      }
     });
+    if(err){
+      console.log(err);
+    }
+  });
 });
 
 // add a project
@@ -245,7 +246,6 @@ router.get('/:username/:id/:imageId', ensureAuthenticated, function(req, res){
       });
     });
 });
-
 
 
 
