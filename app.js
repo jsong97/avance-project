@@ -6,6 +6,10 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const session = require('express-session');
+//const multer = require('multer');
+
+
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -35,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // Bring in Models
 let User = require('./models/user');
 let Project = require('./models/project');
+let Image = require('./models/image');
 
 // Session config
 app.use(session({
@@ -94,6 +99,16 @@ app.use('/projects', project);
 let main = require('./routes/main');
 app.use('/', main);
 
+// Image
+//let image = require('./routes/image');
+//app.use('/image', image);
+
+//
+/*app.use(multer({ dest: './uploads/',
+rename: function (fieldname, filename) {
+    return filename;
+},
+}));*/
 
 app.listen(PORT, () => {
   console.log(`Express listening on port ${PORT}`);

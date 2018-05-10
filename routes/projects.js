@@ -9,6 +9,7 @@ var controller = require('../controllers/controller.js');
 
 let Project = require('../models/project');
 let User = require('../models/user');
+let Image = require('../models/image');
 
 // get the dashboard
 router.get('/', ensureAuthenticated, function(req, res){

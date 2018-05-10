@@ -9,6 +9,7 @@ var controller = require('../controllers/controller.js');
 
 let User = require('../models/user');
 let Project = require('../models/project');
+let Image = require('../models/image');
 
 router.get("/", function(req, res){
   res.render('home');
@@ -75,17 +76,22 @@ router.get('/:id/:id', function(req, res){
 });
 
 
-// add an image to a project
+// get image
 router.get('/:id/:id/upload', function(req, res){
-  res.render('upload', {
-    title: 'Add Project'
-  });
+    Project.findById(req.params.id, function(err, project){
+        User.findById(project.author, function(err, user){
+            res.render('upload', {
+                project: project,
+                title: 'Add Project',
+                author: user //.name
+            });
+        });
+        return;
+    });
 });
 
 
-router.post('/:id/:id/upload', function(req, res){
-  console.log('Submitted Project')
-});
+router.post('/:id/:id/upload', controller.uploadImage);
 
 router.get('/:id/:id/:id', function(req, res){
   res.render('project-image');

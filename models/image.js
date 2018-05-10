@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 
 var imageSchema = new mongoose.Schema(
   {
-    "name": {type: String, required: true},
-    "imageSpot": {type: String, required: true},
-    "imagePath": {type: String, required: true},
-    "imageDescription": {type: String, required: true},
-    "project_id": {type: Number, required: true}
+    "name": {type: String},
+    "uploadTime": {type: String, required: true},
+    "imageData": {type: Buffer, required: true},
+    "imageDescription": {type: String},
+    "projectId": {type: Number, required: true}
   }
 );
 
