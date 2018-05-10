@@ -1074,6 +1074,45 @@ I'll debug it some other time*/
 }
 
 
+.uploadComm{
+  width: calc(100% - 2.6rem);
+  max-width: 800px;
+  margin: 30px auto;
+  font-size:16px;
+  line-height: 50px;
+
+}
+.uploadComm input{
+  width: 100%;
+  height: 40px;
+  margin: 30px auto;
+}
+
+.uploadComm-Title{
+
+}
+.uploadComm-Textarea{
+  width: 100%;
+  height: 150px;
+}
+.uploadComm-Submit{
+  border-radius: 5px;
+  display: block;
+  line-height: 40px;
+  background-color: #007bff;
+  border: 2px #007bff;
+  color: white;
+  font-weight: bolder;
+
+}
+
+.uploadComm-Submit:hover{
+  webkit-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  opacity: 0.2;
+}
+
 /* ========== mission ========== */
 
 .mission-image img{
