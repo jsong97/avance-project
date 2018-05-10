@@ -70,8 +70,9 @@
         <p class="by-line">by <%=author%></p>
         <p><%=project.description%></p>
         <input class="btn btn-primary" type="button" value="Add image to project"
-               onclick="location.href='/users/5/myprojects/5/upload';"/>
+               onclick="location.href='/projects/<%=project._id%>/upload';"/>
       </div>
+
 
       <!--
       Note: Overall structure for the code was taken from free, open-source websites. The code is NOT an exact copy of the open-source code, as adaptions were made regarding the implementation, but a large percentage of our code remains identical to the source.

@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const path = require('path');
+const multer = require('multer');
+const gridFsStorage = require('multer-gridfs-storage');
+const crypto = require('crypto');
+const grid = require('gridfs-stream');
+const methodOverride = require('method-override');
+
 
 // Bring in controller
 var controller = require('../controllers/controller.js');
@@ -90,8 +97,35 @@ router.get('/:id/:id/upload', function(req, res){
     });
 });
 
+// create storage engine
+const config = require('../config/database');
+const storage = new gridFsStorage({
+    url: config.database,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
 
-router.post('/:id/:id/upload', controller.uploadImage);
+                }
+                console.log(file.originalname);
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'images'
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+})
+
+const upload = multer({storage});
+// get request omitted
+router.post('/:id/:id/upload', upload.single('fileToUpload'), (req, res) => {
+    res.json({file:req.file});
+});
+
 
 router.get('/:id/:id/:id', function(req, res){
   res.render('project-image');

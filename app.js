@@ -6,7 +6,12 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 const session = require('express-session');
-//const multer = require('multer');
+const multer = require('multer');
+const gridFsStorage = require('multer-gridfs-storage');
+const crypto = require('crypto');
+const grid = require('gridfs-stream');
+const methodOverride = require('method-override');
+
 
 
 
@@ -18,14 +23,49 @@ const config = require('./config/database');
 var mongoose = require('mongoose');
 mongoose.connect(config.database);
 let db = mongoose.connection;
-
+let gfs;
 db.once('open', function(){
+  gfs = grid(db.db, mongoose.mongo);
+  gfs.collection('image');
+  gfs.collection('projects');
+  gfs.collection('users');
   console.log('Connected to MongoDB');
 });
+
+// create storage engine
+/*const storage = new gridFsStorage({
+    url: config.database,
+    file: (req, file) => {
+      return new Promise((resolve, reject) => {
+        crypto.randomBytes(16, (err, buf) => {
+          if (err) {
+            return reject(err);
+
+          }
+
+          const filename = buf.toString('hex') + path.extname(file.originalName);
+          const fileInfo = {
+            filename: filename,
+            bucketName: 'images'
+          };
+          resolve(fileInfo);
+        });
+      });
+    }
+})
+
+const upload = multer({storage});
+// get request omitted
+app.post('/upload', upload.single('fileToUpload'), (req, res) => {
+  res.json({file:req.file});
+});*/
+
 
 db.on('error', function(err){
   console.log(err);
 });
+
+
 
 
 // Load View Engine
