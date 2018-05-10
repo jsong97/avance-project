@@ -1,0 +1,1144 @@
+, ensureAuthenticated,/* *{
+  border: solid red;
+} */
+
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+}
+
+body,html {
+  height: 100%;
+  margin: 0%;
+  padding: 0%;
+}
+
+.container h1 {
+  margin: 0 0 1em 0;
+}
+
+/* ========== Alerts ============== */
+.alert {
+  margin: auto;
+  margin-top: 2em;
+  border: 3px solid;
+  padding: 10px;
+  text-align: left;
+  width: 80%;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success_msg {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+/* ========== Navbar ============== */
+nav li {
+  list-style-type: none;
+}
+
+.header-background {
+  background-image: url('/users/demo_user/images/foggy-mountain.jpg');
+  background-size: cover;
+  background: contain;
+  width: 100%;
+  height: 300px;
+
+}
+
+/* ============ Forum ============== */
+
+.popular-posts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+  /* grid-auto-rows: 20em; */
+  /* grid-auto-rows: minmax(20em, auto); */
+  margin: 0 0 3em 0;
+  border-radius: 25px;
+}
+
+.container.forum {
+  background: linear-gradient(
+    to right,
+    #ccc 0%,
+    #ccc 66.2%,
+    #16262E 66.2%,
+    #16262E 99%
+  );
+}
+
+.forum-post {
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  background: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
+  grid gap: 1em;
+}
+
+.additional-forum-info {
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  background: #16262E;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-row-gap: 3em;
+}
+
+.forum-info-styling {
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+}
+
+.post-image {
+  width:130px;
+  height: 100px;
+  grid-column: 1;
+  grid-row: 1/4;
+  border-radius: 5px;
+}
+
+.post-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.5em;
+  /* grid-auto-rows: minmax(20em, auto); */
+  margin: 1em 1em 1em 1em;
+  grid-column: 1/3;
+}
+
+.post-title {
+  grid-column: 2/4;
+  padding: 0 0 5px 0;
+  border-bottom: 1px dashed grey;
+}
+
+.post-title a {
+  color: orange;
+  text-decoration: none;
+}
+
+.post-author {
+
+}
+
+.post-content {
+  font-style: italic;
+}
+
+.comment {
+  display: inline;
+}
+
+.top-comment {
+  padding: 1em 1em 0em 1em;
+  font-style: italic;
+  display: block;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid black;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid black;
+}
+
+.votes {
+  display: inline-block;
+  float: left;
+  margin: 1.2em 0.5em 0 1em;
+}
+
+.votes p {
+  margin: 0 0 0 0.2em;
+}
+
+
+
+/* ========== overall styling ========== */
+
+.project-title-header {
+  height: 8em;
+  width: 100%;
+  margin-bottom: 1em;
+  border-bottom: solid black 2px;
+}
+
+.project-title-header h1 {
+  background: -webkit-linear-gradient(#bea2e7, #9198e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.by-line {
+  margin-top: -2em;
+  font-size: 20px;
+}
+
+.bg-fullscreen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video {
+  position: fixed;
+  left: 0.00005%;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.logo {
+  width:30px;
+  height:30px;
+}
+
+/* ========= text styling =========*/
+.text {
+  font-family: Verdana;
+  color: aliceblue;
+
+}
+
+.main {
+  font-size: 65px;
+  text-shadow: darkslategrey 1px 1px 1px;
+}
+
+.desc {
+  font-family: "Trebuchet MS";
+  font-size: 24px;
+  text-shadow: darkslategrey 1px 1px 2px;
+}
+
+.fine {
+  font-size: 10px;
+  color: darkgrey;
+}
+
+/* ========= text positioning ==========*/
+.footer {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+.middle {
+  position: relative;
+  text-align: center;
+  top: 15%;
+}
+
+
+
+/* ============== SEARCH BOX ===========*/
+.user-form {
+  position: relative;
+  top: 10%;
+  display: block;
+  max-width: 188px;
+  margin: 50px auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+input.user-details {
+  margin: 5px 0 5px 1px;
+  text-align: center;
+  outline: 0;
+  border: 10px solid #F7F7F7;
+  box-shadow: 0 0 5px;
+  position: relative;
+  border-radius: 10px;
+}
+
+input.submit-button {
+  position: relative;
+  margin-top: 5px;
+  border: 10px solid #F7F7F7;
+  border: none;
+  color: grey;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  box-shadow: 0 0 5px;
+  border-radius: 10px;
+  background-color: white;
+  font-family: "Comic Sans MS";
+}
+/*=========================================*/
+
+
+/* ============= EXPLORE-PAGE ============*/
+.basic-info {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin: 0 0 2em 0;
+  border-bottom: 1px solid grey;
+}
+
+.updating-info {
+  padding: 0 1em 0 1em;
+  margin: 0.5em 0.5em 0.5em 0.5em;
+  background: #FBFBF7;
+  flex: 1;
+}
+
+.featured-projects, #slider, .slide-content{
+  border-bottom: 1px solid grey;
+  padding: 0 0 1.5em 0;
+  margin: 0 0 1.5em 0;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.featured_projects {
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide1 {background-image: url('users/demo_user/images/autumn.jpeg');}
+.slide2 {background-image: url('users/demo_user/images/beach.jpg');}
+.slide3 {background-image: url('users/demo_user/images/canyon.jpg');}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+}
+
+.slide-content a {
+  text-decoration: none;
+}
+
+.slide-content span {
+  font-size: 5rem;
+  color: #fff;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%%;
+  margin-top: 9em;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent orange transparent transparent;
+  left: 0;
+  margin-left: 10em;
+  margin-top: 13em;
+}
+
+#arrow-right {
+  border-width: 30px 0px 30px 40px;
+  border-color: transparent transparent transparent orange;
+  right: 0;
+  margin-right: 11.4em;
+  margin-top: 13em;
+}
+
+.all-projects {
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.5em;
+  /* grid-auto-rows: 20em; */
+  grid-auto-rows: minmax(20em, auto);
+  margin: 0 0 3em 0;
+}
+
+.all-projects > div {
+  padding: 1em;
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  background-size: cover;
+  cursor: pointer;
+}
+
+/* .all-projects > div:(odd){
+  background: #ddd;
+} */
+
+.all-projects p {
+  width: 12em;
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+  text-align: center;
+}
+
+.box1 {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  background: url("users/demo_user/images/anime_scenery.jpg");
+}
+
+.box2 {
+  grid-row: 3/5;
+  background: url("users/demo_user/images/anime_girl.jpg");
+}
+
+.box3 {
+  grid-row: 1/3;
+  background: url("users/demo_user/images/grampians.png");
+}
+
+.box4 {
+  background: url("users/demo_user/images/its_me_final.png");
+}
+
+.box5 {
+  background: url("users/demo_user/images/dark_flower_final.png");
+}
+
+.box6 {
+  grid-column: 2/4;
+  background: url("users/demo_user/images/aerial_field_color.png");
+}
+
+.box7 {
+  background: url("users/demo_user/images/home_away_final.png");
+}
+
+.box8 {
+  background: url("users/demo_user/images/clouds_anime_girl.jpg");
+}
+
+.box9 {
+  background: url("users/demo_user/images/photos_wild_final.png");
+}
+
+
+/*=================== MODAL FOR EXPLORE PAGE ==================*/
+.modal-backdrop {
+  z-index: -1;
+}
+
+.modal-content {
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-lg{
+  max-width: 1000px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+/*=================== TEAM DESCRIPTION ==================*/
+.team-descriptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.5em;
+  /* grid-auto-rows: 20em; */
+  grid-auto-rows: minmax(20em, auto);
+  margin: 0 0 3em 0;
+  background: url(//subtlepatterns.com/patterns/scribble_light.png);
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+
+.member {
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  padding: 1em;
+  background: white;
+}
+
+.member img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 1em 0 1em 0;
+}
+
+/*=================== Progress Bar =================*/
+.progressbar {
+  counter-reset: step;
+  position: relative;
+  left: -2%;
+}
+
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  line-height: 30px;
+  background-color: white;
+}
+
+.progressbar li:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  background-color: #ddd;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active{
+  color: green;
+}
+
+.progressbar li.active:before{
+  border-color:green;
+  background-color: yellow;
+}
+
+.progressbar li a {
+  text-decoration: none;
+}
+
+
+/*=================== DISPLAY IMAGE ====================*/
+.display-image {
+  width: 1100px;
+}
+
+.display-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid #fcfcfc;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  align: middle;
+}
+
+.display-image .image-description {
+  margin: 2em 0 0 0;
+}
+
+.display-image .image-info {
+  font-size: 13px;
+
+}
+
+/*==================== Login =======================*/
+
+#login-button {
+  margin: 2em;
+}
+
+/*==================== Project Page =======================*/
+
+#project-image-author {
+  margin: -2.5em 0 1em 0;
+}
+
+/*
+
+Note: Overall structure for the code was taken from free, open-source websites. The code is NOT an exact copy of the open-source code, as adaptions were made regarding the implementation, but a large percentage of our code remains identical to the source.
+
+code for this timeline was taken from https://codepen.io/melnik909/pen/qPjwvq, from the website, http://freefrontend.com/css-timelines/#horizontal-timelines, which lists many different types of frontends. This code has been adjusted to fit in with our website, but by and large it remains the same.
+
+A tutorial on how to implement and create a timeline was also followed in the creation of this code: https://www.youtube.com/watch?v=eEybqzuh6Z0. While they use different timelines, the final implementation takes aspects from both.
+
+*/
+
+.timeline{
+  --uiTimelineMainColor: var(--timelineMainColor, #222);
+  --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
+
+  position: relative;
+  padding-top: 1.95rem;
+  padding-bottom: 1.95rem;
+}
+
+.timeline:before{
+  content: "";
+  width: 4px;
+  height: 100%;
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  top: 0;
+}
+
+.timeline__group{
+  position: relative;
+}
+
+.timeline__group:not(:first-of-type){
+  margin-top: 2.6rem;
+}
+
+.timeline__year{
+  padding: .375rem .975rem;
+  color: var(--uiTimelineSecondaryColor);
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.timeline__box{
+  position: relative;
+}
+
+.timeline__box:not(:last-of-type){
+  margin-bottom: 30px;
+}
+
+.timeline__box:before{
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--uiTimelineMainColor);
+
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+
+.timeline__date{
+  min-width: 65px;
+  position: absolute;
+  left: 0;
+
+  box-sizing: border-box;
+  padding: .325rem .975rem;
+  text-align: center;
+
+  background-color: var(--uiTimelineMainColor);
+  color: var(--uiTimelineSecondaryColor);
+}
+
+.timeline__day{
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: block;
+}
+
+.timeline__month{
+  display: block;
+  font-size: .52em;
+  text-transform: uppercase;
+}
+
+.timeline__post{
+  padding: 0.975rem 1.3rem;
+  border-radius: 5px;
+  border-left: 3px solid var(--uiTimelineMainColor);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+  background-color: var(--uiTimelineSecondaryColor);
+}
+
+@media screen and (min-width: 641px){
+
+  .timeline:before{
+    left: 30px;
+  }
+
+  .timeline__group{
+    padding-top: 55px;
+  }
+
+  .timeline__box{
+    padding-left: 80px;
+  }
+
+  .timeline__box:before{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .timeline__date{
+    top: 50%;
+    margin-top: -27px;
+  }
+}
+
+@media screen and (max-width: 640px){
+
+  .timeline:before{
+    left: 0;
+  }
+
+  .timeline__group{
+    padding-top: 40px;
+  }
+
+  .timeline__box{
+    padding-left: 20px;
+    padding-top: 70px;
+  }
+
+  .timeline__box:before{
+    top: 90px;
+  }
+
+  .timeline__date{
+    top: 0;
+  }
+}
+
+.timeline{
+  --timelineMainColor: #4557bb;
+  font-size: 16px;
+}
+
+/* @media screen and (min-width: 768px){
+
+  html{
+    font-size: 62.5%;
+  }
+} */
+
+/*
+@media screen and (max-width: 767px){
+
+  html{
+    font-size: 55%;
+  }
+}
+
+
+@media screen and (min-width: 768px){
+
+  html{
+    font-size: 62.5%;
+  }
+}
+
+/*@media screen and (max-width: 767px){
+
+  html{
+    font-size: 50%;
+  }
+}*/
+
+.body-timeline{
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  font-size: 1.03rem;
+  color: #222;
+  background-color: #f0f0f0;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+.timeline__content p{
+  margin-top: 0;
+  margin-bottom: 0.975rem;
+  line-height: 1.5rem;
+}
+
+.timeline__content p:last-child{
+  margin-bottom: 0;
+}
+
+.page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.page__demo{
+  flex-grow: 1;
+}
+
+.main-container{
+  max-width: 960px;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page__container{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  max-width: 800px;
+}
+
+@media screen and (min-width: 361px){
+
+  .footer__container{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 360px){
+
+  .melnik909{
+    display: none;
+  }
+}
+
+.timeline-image{
+  height: 25em;
+  /* border: 2px solid #86b7e7; */
+  border: 2px solid transparent;
+  border-image: linear-gradient(0deg, #bea2e7, #9198e5);
+  border-image-slice: 1;
+  border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  overflow: hidden;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+/* Now for all the images hahahah */
+
+/* Cloud Girl*/
+.image1 {
+  background: url('users/demo_user/images/no-background-clouds-girl.png');
+  background-size: cover;
+}
+.image2 {
+  background: url('users/demo_user/images/some-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image3 {
+  background: url('users/demo_user/images/clouds-girl-final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Anime Scenery */
+.image4{
+  background: url('users/demo_user/images/anime_scenery_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image5{
+  background: url('users/demo_user/images/anime_scenery_b_w.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image6{
+  background: url('users/demo_user/images/anime_scenery.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* the Grampians*/
+.image7 {
+  background: url('users/demo_user/images/grampians_paint.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image8 {
+  background: url('users/demo_user/images/grampians_b_w.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image9 {
+  background: url('users/demo_user/images/grampians.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Summer Girl, Anime Girl 1*/
+/* For some reason background-size: cover doesn't work here.
+I'll debug it some other time*/
+.image10 {
+  background: url('users/demo_user/images/anime_girl_sketch.png');
+  background-size: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image11 {
+  background: url('users/demo_user/images/anime_girl_black_and_white.png');
+  background-size: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image12 {
+  background: url('users/demo_user/images/anime_girl.jpg');
+  background-size: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+/* Its Me*/
+.image13 {
+  background: url('users/demo_user/images/its_me_teaser.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image14 {
+  background: url('users/demo_user/images/its_me.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image15 {
+  background: url('users/demo_user/images/its_me_final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Dark flower*/
+.image16 {
+  background: url('users/demo_user/images/flower.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image17 {
+  background: url('users/demo_user/images/dark_flower_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image18 {
+  background: url('users/demo_user/images/dark_flower_final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Aerial Field */
+.image19 {
+  background: url('users/demo_user/images/aerial-field.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image20 {
+  background: url('users/demo_user/images/aerial_field_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image21 {
+  background: url('users/demo_user/images/aerial_field_color.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Home Away */
+.image22 {
+  background: url('users/demo_user/images/home_away.png');
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image23 {
+  background: url('users/demo_user/images/home_away_sketch.png');
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.image24 {
+  background: url('users/demo_user/images/home_away_final.png');
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+/* Photos in the Wild */
+.image25 {
+  background: url('users/demo_user/images/camera-clouds.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image26 {
+  background: url('users/demo_user/images/photos_wild_sketch.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image27 {
+  background: url('users/demo_user/images/photos_wild_final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.additional__note {
+  font-size: 50%;
+  font-style: italic;
+  text-decoration: none;
+
+}
+
+/*============ comments =================*/
+
+.comments {
+  border-radius: 10px;
+  border: black;
+  background-color: lightgrey;
+  padding-bottom: 20px;
+}
+
+.comment-box {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  display: block;
+}
+
+.comment {
+  font-size: 24px;
+  font-family: Verdana;
+
+}
+
+.commenter {
+
+}
+
+.reply{
+  color: lightgrey;
+  font-style: italic;
+}
+
+
+.uploadComm{
+  width: calc(100% - 2.6rem);
+  max-width: 800px;
+  margin: 30px auto;
+  font-size:16px;
+  line-height: 50px;
+
+}
+.uploadComm input{
+  width: 100%;
+  height: 40px;
+  margin: 30px auto;
+}
+
+.uploadComm-Title{
+
+}
+.uploadComm-Textarea{
+  width: 100%;
+  height: 150px;
+}
+.uploadComm-Submit{
+  border-radius: 5px;
+  display: block;
+  line-height: 40px;
+  background-color: #007bff;
+  border: 2px #007bff;
+  color: white;
+  font-weight: bolder;
+
+}
+
+.uploadComm-Submit:hover{
+  webkit-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  opacity: 0.2;
+}
+
+
+
+/* ========== mission ========== */
+
+.mission-image img{
+  max-width: 60%;
+  max-height: 60%;
+  margin-bottom: 2em;
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+}
+
+
+
+/* ========== support ========== */
+
+.support-request {
+  margin: 1em 0 1em 0;
+}
+
+.contact-info {
+  border: 2px solid #fcfcfc;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  font-size: 2em;
+  font-family: Ubuntu, "times new roman", times, roman, serif;
+  padding: 0 2em 0 2em;
+  margin: 2em 0 2em 0;
+}
+
