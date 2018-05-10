@@ -34,7 +34,7 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/myprojects">Dashboard</a>
+              <a class="nav-link" href="/<%=user.username%>">Dashboard</a>
             </li>
             <li>
               <a class="nav-link" href="/logout">Logout</a>
@@ -61,25 +61,25 @@
         <li class="active">Project</li>
       </ul>
     </div>
+    <% if (image) {%>
     <div class="container"><br>
       <hr>
-      <h1> Anime Girls Sketch </h1>
+      <h1><%image.name%></h1>
       <div id="project-image-author">
         <h2><h2>
       </div>
       <div class="display-image">
-        <img src="/css/users/demo_user/images/clouds_anime_girl.jpg">
+        <img src="/image/<%=image._id%>" alt="">
         <div class="image-description">
           <p class="project-desc">Description</p>
-          <p> My first project sketch, I love watching anime so wanted to give sketching a try! All feedback appreciated!
-          </p>
+          <p><%image.imageDescription%></p>
         </div>
         <div class="image-info">
-          <p> 19/04/2017 </p>
+          <p></p>
         </div><br/>
         <p class="project-desc">Comments</p>
         <div class="comments"><br/>
-         <div class="comment-box">
+          <div class="comment-box">
             <p class="comment">Great work!</p>
             <p class="commenter">Hiruko Mimi</p>
             <input class="reply" type="text" value=" Leave a reply"/>
@@ -87,6 +87,9 @@
           </div>
         </div>
       </div>
+      <%} else { %>
+      <p>Image not found!</p>
+      <%}%>
 
 
       <footer>

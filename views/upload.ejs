@@ -34,7 +34,7 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/myprojects">Dashboard</a>
+              <a class="nav-link" href="/<%=user.username%>">Dashboard</a>
             </li>
             <li>
               <a class="nav-link" href="/logout">Logout</a>
@@ -64,11 +64,11 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1> Upload an Image</h1>
-      <form method="POST" enctype="multipart/form-data" action="/<%=user%>/<%=project%>/upload">
+      <form method="POST" enctype="multipart/form-data" action="/<%=user.username%>/<%=project._id%>/upload">
         <div id="form-group">
           <label>Image to Upload: </label>
           <input type="file" name="fileToUpload" id="fileToUpload">
-        </div>
+        </div> <!--put check mimetype-->
         <div id="form-group">
           <label>Title:</label>
           <input class="form-control" name="name" type="text"/><br/>

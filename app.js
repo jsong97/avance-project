@@ -124,6 +124,9 @@ app.get("*", function(req, res, next){
   next();
 });
 
+// global db connection
+//app.set("gfs", gfs);
+
 // Set Public Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -132,8 +135,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 let explore = require('./routes/explore');
 app.use('/explore', explore);
 
-let project = require('./routes/projects');
-app.use('/projects', project);
+//let project = require('./routes/projects');
+//app.use('/projects', project);
 
 // Home page
 let main = require('./routes/main');

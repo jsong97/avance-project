@@ -34,7 +34,7 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/myprojects">Dashboard</a>
+              <a class="nav-link" href="/<%=user.username%>">Dashboard</a>
             </li>
             <li>
               <a class="nav-link" href="/logout">Logout</a>
@@ -65,7 +65,7 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1><%=title%></h1>
-      <form method="POST" action="/<%=user%>/newproject">
+      <form method="POST" action="/<%=user.username%>/newproject">
       <!--<form method="POST" enctype="multipart/form-data" action="/projects/newproject">-->
         <div id="form-group">
           <label>Project Name:</label>

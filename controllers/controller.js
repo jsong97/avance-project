@@ -8,7 +8,7 @@ var User = mongoose.model('User');
 // this is the 'Project' model
 var Project = mongoose.model('Project');
 
-var Image = mongoose.model('Image');
+//var Image = mongoose.model('Image');
 
 
 const express = require('express');
@@ -94,7 +94,14 @@ var findOneUser = function(req, res){
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
-  const author = req.user._id;
+
+    User.find({username: req.params.username}, (err, user) => {
+        console.log("in controller create proj");
+        console.log(user);
+        if (err) {
+            return;
+        }
+  const author = user._id;
   const description = req.body.description;
   //const file = req.body.picture;
 

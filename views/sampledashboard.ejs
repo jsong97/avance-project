@@ -34,7 +34,7 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/myprojects">Dashboard</a>
+              <a class="nav-link" href="/<%=user.username%>">Dashboard</a>
             </li>
             <li>
               <a class="nav-link" href="/logout">Logout</a>
@@ -64,15 +64,25 @@
     </div>
     <div class="container"><br>
       <!-- Code here -->
-      <h1><%=user.name%></h1>
-      <ul>
+      <h1><%=author.name%></h1>
+      <% if (typeof projects != 'undefined') { %>
+        <p>in sample dash</p>
+        <ul>
         <% projects.forEach(function(project){ %>
-          <li><a href="/projects/<%=project._id%>"><%= project.name%></a></li>
+          <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
+          <% if (user) { %>
+            <li><a href="/<%=user.username%>/<%=project._id%>"><%= project.name%></a></li>
+          <% } else { %>
+            <li><a href="/explore/<%=user.username%>/<%=project._id%>"><%= project.name%></a></li>
+          <%}%>
         <% }); %>
-      </ul>
-      <ul>
-        <a class="btn btn-primary" href="/projects/newproject">New Project</a>
-      </ul>
+        </ul>
+      <% }%>
+      <% if (user) { %>
+        <ul>
+          <a class="btn btn-primary" href="/<%=user.username%>/newproject">New Project</a>
+        </ul>
+      <% } %>
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
