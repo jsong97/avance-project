@@ -10,7 +10,7 @@ var controller = require('../controllers/controller.js');
 let Project = require('../models/project');
 let User = require('../models/user');
 let Image = require('../models/image');
-
+let Comments = require('../models/comment');
 // get the dashboard
 router.get('/', ensureAuthenticated, function(req, res){
   // res.render('myprojects');
@@ -44,7 +44,7 @@ router.get('/:id', function(req, res){
     User.findById(project.author, function(err, user){
       res.render('project', {
         project: project,
-        author: user.name
+        author: user.name,
       });
     });
     return;
@@ -62,6 +62,9 @@ router.get('/:id', function(req, res){
 //     });
 //   });
 // });
+
+
+
 
 // Access control
 function ensureAuthenticated(req, res, next){
