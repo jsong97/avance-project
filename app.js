@@ -144,6 +144,11 @@ app.use('/explore', explore);
 let main = require('./routes/main');
 app.use('/', main);
 
+
+// add project comment
+let addComment = require('./routes/addComment');
+app.use('/project/addcomment', addComment);
+
 // Image
 //let image = require('./routes/image');
 //app.use('/image', image);
