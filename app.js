@@ -99,7 +99,7 @@ app.use(function (req, res, next){
 app.use(expressValidator({
   errorFormatter: function(param, msg, value){
     var namespace = param.split('.')
-    , root = namepsace.shift()
+    , root = namespace.shift()
     , formParam = root;
 
     while(namespace.length) {
@@ -132,6 +132,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ====== Routes ======
 // Explore page
+
+
 let explore = require('./routes/explore');
 app.use('/explore', explore);
 

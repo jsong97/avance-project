@@ -110,54 +110,28 @@ router.post('/:username/newproject', controller.createProject);
 router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
   Project.findById(req.params.projectId, function(err, project){
   //var gfs = app.get("gfs");
-      if (err) {
-          res.status(404).json({
-              err: 'No file exists'
-          })
-          return;
-      }
+    if (err) {
+      res.status(404).json({
+        err: 'No file exists'
+      });
+      return;
+    }
     Image.find({project_id: project._id}, function(err, images){
       //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
-        if (err) {// || files.length === 0) {
-          res.render('project', {
-              images: false,
-              project: project
+      if (err) {// || files.length === 0) {
+        res.render('project', {
+          images: false,
+            project: project
           });
-
         } else {
-          // in post make sure png n jpeg only -CHANGE FOR THIS
-          res.render('project', {
-              images: images,
-              project: project
-          });
-        }
+            // in post make sure png n jpeg only -CHANGE FOR THIS
+            res.render('project', {
+            images: images,
+            project: project
+        });
+      }
     });
-
   });
-});
-
-router.get('/image/:imageId', (req, res) => {
-    Image.findById(req.params.imageId, function(err, image){
-        gfs.files.findOne({ _id: image.grid_id }, (err, file) => {
-            // Check if file
-            if (!file || file.length === 0) {
-                return res.status(404).json({
-                    err: 'No file exists'
-                });
-            }
-
-            // Check if image
-            //if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-                // Read output to browser
-                const readstream = gfs.createReadStream(file.filename);
-                readstream.pipe(res);
-           // } else {
-            //    res.status(404).json({
-            //        err: 'Not an image'
-            //    });
-           // }
-
-    });
 });
 
 
@@ -228,6 +202,30 @@ router.post('/:username/:projectId/upload', upload.single('fileToUpload'), (req,
         res.redirect(':id/:projectId');
     });
 
+});
+
+router.get('/image/:imageId', (req, res) => {
+    Image.findById(req.params.imageId, function(err, image){
+        gfs.files.findOne({ _id: image.grid_id }, (err, file) => {
+            // Check if file
+            if (!file || file.length === 0) {
+                return res.status(404).json({
+                    err: 'No file exists'
+                });
+            }
+
+            // Check if image
+            //if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+                // Read output to browser
+                const readstream = gfs.createReadStream(file.filename);
+                readstream.pipe(res);
+           // } else {
+            //    res.status(404).json({
+            //        err: 'Not an image'
+            //    });
+           // }
+
+    });
 });
 
 // Get one image of a project
