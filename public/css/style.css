@@ -423,42 +423,42 @@ input.submit-button {
 .box1 {
   grid-column: 1/3;
   grid-row: 1/3;
-  background: url("users/demo_user/images/anime_scenery.jpg");
+  /*background: url("users/demo_user/images/anime_scenery.jpg");*/
 }
 
 .box2 {
   grid-row: 3/5;
-  background: url("users/demo_user/images/anime_girl.jpg");
+  /*background: url("users/demo_user/images/anime_girl.jpg");*/
 }
 
 .box3 {
   grid-row: 1/3;
-  background: url("users/demo_user/images/grampians.png");
+  /*background: url("users/demo_user/images/grampians.png");*/
 }
 
 .box4 {
-  background: url("users/demo_user/images/its_me_final.png");
+  /*background: url("users/demo_user/images/its_me_final.png");*/
 }
 
 .box5 {
-  background: url("users/demo_user/images/dark_flower_final.png");
+  /*background: url("users/demo_user/images/dark_flower_final.png");*/
 }
 
 .box6 {
   grid-column: 2/4;
-  background: url("users/demo_user/images/aerial_field_color.png");
+  /*background: url("users/demo_user/images/aerial_field_color.png");*/
 }
 
 .box7 {
-  background: url("users/demo_user/images/home_away_final.png");
+  /*background: url("users/demo_user/images/home_away_final.png");*/
 }
 
 .box8 {
-  background: url("users/demo_user/images/clouds_anime_girl.jpg");
+  /*background: url("users/demo_user/images/clouds_anime_girl.jpg");*/
 }
 
 .box9 {
-  background: url("users/demo_user/images/photos_wild_final.png");
+  /*background: url("users/demo_user/images/photos_wild_final.png");*/
 }
 
 

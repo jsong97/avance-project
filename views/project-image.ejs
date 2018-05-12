@@ -26,7 +26,6 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/explore/team">Our team</a>
               <a class="dropdown-item" href="/explore/support">Support</a>
-              <a class="dropdown-item" href="/explore/forum">Forum</a>
             </div>
           </li>
           <li class="nav-item">
@@ -65,12 +64,12 @@
     <div class="container"><br>
       <hr>
       <h1><%-image.name%></h1>
-      <p class="by-line">by <%-user.name%></p>
+      <p class="by-line">by <%-project.author%></p>
       <div class="display-image">
         <!--
         <img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">
         -->
-        <img src="http://localhost:3000/<%=user._id%>/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
+        <img src="http://localhost:3000/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
         <div class="image-description">
           <p class="project-desc">Description</p>
           <p><%-image.imageDescription%></p>

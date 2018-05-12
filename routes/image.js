@@ -132,7 +132,14 @@ router.get('/:id/:imageId', ensureAuthenticated, function(req, res){
         //}
         else {
             // in post make sure png n jpeg only -CHANGE FOR THIS
-            res.render('project-image', {image: image});
+            Project.findById(image.project_id, function(err, project) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                   res.render('project-image', {image: image, project:project});
+                }
+            });
         }
     });
 });

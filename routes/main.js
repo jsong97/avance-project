@@ -20,7 +20,16 @@ let Image = require('../models/image');
 let Project_Image = require('../models/project_image');
 
 router.get("/", function(req, res){
-  res.render('home');
+  Project.find({}, function(err, projects) {
+      if (err){
+          console.log(err);
+      } else {
+          res.render('home', {
+              projects:projects
+          });
+      }
+  })
+
 });
 
 // changing login for now
@@ -134,11 +143,11 @@ router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
                   });
 
               } else {
-                  // in post make sure png n jpeg only -CHANGE FOR THIS
                   res.render('project', {
-                      images: images,
-                      project: project
-                  });
+                              images: images,
+                              project: project
+                          });
+
               }
           });
 
