@@ -70,7 +70,7 @@
         <p class="by-line">by <%-project.author%></p>
         <p><%=project.description%></p>
         <%if (user) {%>
-        <input class="btn btn-primary" type="button" value="Add image to project"
+        <input class="btn btn-primary" type="button" value="Add to timeline"
                onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
         <%}%>
       </div>
