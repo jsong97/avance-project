@@ -1,4 +1,7 @@
 var mongoose = require('mongoose');
+
+// moment is a library used to manage datetime
+var moment = require('moment');
 //var multer = require('multer');
 var fs = require('fs');
 
@@ -128,19 +131,24 @@ var createProject = function(req, res){
 }
 
 var uploadImage = function(req, res) {
-  let time = new Date();
   const name = req.body.name;
   //const projectId = req.params.id; //project id
   const imageDescription = req.body.description;
   const imageData = fs.readFileSync(req.body.fileToUpload); //change to path
+
+  // arrange the time
+  let time = new Date();
   const uploadTime = time.toLocaleString();
+
+  let uploadDay = formatDate(uploadTime);
+
 
   let newImage = new Image({
     name:name,
     //projectId:projectId,
     imageDescription:imageDescription,
     imageData:imageData,
-    uploadTime:uploadTime
+    uploadTime:uploadDay
     });
 
 
@@ -150,8 +158,21 @@ var uploadImage = function(req, res) {
     }
     res.end("File uploaded sucessfully!.");
   });
+}
 
+function formatDate(date) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
 
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year;
 }
 
 module.exports = {

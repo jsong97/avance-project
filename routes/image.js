@@ -8,7 +8,7 @@ const gridFsStorage = require('multer-gridfs-storage');
 const crypto = require('crypto');
 const grid = require('gridfs-stream');
 const methodOverride = require('method-override');
-
+const moment = require('moment');
 
 // Bring in controller
 var controller = require('../controllers/controller.js');
@@ -79,17 +79,29 @@ router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (
     const projectId = req.params.projectId;
     const imageDescription = req.body.description;
     //const imageData = fs.readFileSync(req.body.fileToUpload);
-    const filename = req.file.filename;
+    var hasFile = 0;
+    var filename = "NOFILE";
+    if (req.file !== undefined){
+      filename = req.file.filename;
+      hasFile = 1;
+    }
+    console.log("filename is: \n");
+    console.log(filename);
+    console.log(hasFile);
     const uploadTime = time.toLocaleString();
+    let readableTime = moment(uploadTime);
+    let uploadDay = readableTime.format('DD');
+    let uploadMonth = readableTime.format('MMMM');
 
     let newImage = new Project_Image({
-        name:name,
-        //projectId:projectId,
-        imageDescription:imageDescription,
-        //imageData:imageData,
-        filename:filename,
-        uploadTime:uploadTime,
-        project_id: projectId
+      name:name,
+      //projectId:projectId,
+      imageDescription:imageDescription,
+      //imageData:imageData,
+      filename:filename,
+      uploadDay:uploadDay,
+      uploadMonth:uploadMonth,
+      project_id:projectId
     });
 
     var redirFail = "/image/"+req.params.username+"/"+projectId+"/new/upload";
@@ -105,7 +117,6 @@ router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (
             res.redirect(redirSuccess);
         }
     });
-
 });
 
 // Get one image of a project
@@ -125,8 +136,6 @@ router.get('/:id/:imageId', ensureAuthenticated, function(req, res){
         }
     });
 });
-
-
 
 
 

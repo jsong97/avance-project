@@ -4,7 +4,8 @@ var imageSchema = new mongoose.Schema(
   {
     "grid_id": {type:Number, required:true},
     "name": {type: String, required:true},
-    "uploadTime": {type: String, required: true},
+    "uploadDay": {type: String, required: true},
+    "uploadMonth": {type: String, required: true},
     //"imageData": {type: Buffer, required: true},
     "imageDescription": {type: String, required:true},
     "project_id": {type: Number, required: true}
