@@ -96,11 +96,11 @@
               <div class="timeline__group">
                 <div class="timeline__box">
                   <div class="timeline__date">
-                    <span class="timeline__month"><%image.uploadTime%></span>
+                    <span class="timeline__month"><%-image.uploadTime%></span>
                   </div>
                   <div class="timeline__post">
                     <div class="timeline__content">
-                      <p><%image.imageDescription%></p>
+                      <p><%-image.imageDescription%></p>
                       <div class="dropdown-divider"></div>
                       <div class="timeline-image" onclick="window.location='/image/<%= project._id%>/<%=image._id%>';">
                         <img src="http://localhost:3000/<%=user._id%>/grid-images/<%=project._id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
