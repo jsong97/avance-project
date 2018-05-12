@@ -4,7 +4,7 @@ var projectImageSchema = new mongoose.Schema(
     {
         "filename": {type:String, required:true},
         "name": {type: String, required:true},
-        "uploadTime": {type: Date, required: true},
+        "uploadTime": {type: String, required: true},
         //"imageData": {type: Buffer, required: true},
         "imageDescription": {type: String, required:true},
         "project_id": {type: String, required: true}
