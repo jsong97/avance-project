@@ -77,8 +77,8 @@ var findAllUsers = function(req, res){
     } else {
       res.sendStatus(404);
     }
-  })
-};
+  });
+}
 
 var findOneUser = function(req, res){
   var userInx = req.params.id;
@@ -89,46 +89,42 @@ var findOneUser = function(req, res){
       res.sendStatus(404);
     }
   });
-};
+}
 
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
 
-    User.find({username: req.params.username}, (err, user) => {
-        console.log("in controller create proj");
-        console.log(user);
-        if (err) {
-            return;
+
+    const author = req.params.username;
+    const description = req.body.description;
+    //const file = req.body.picture;
+
+    req.checkBody('name', 'Name is required').notEmpty();
+    req.checkBody('description', 'Description is required').notEmpty();
+
+    let errors = req.validationErrors();
+    if (errors){
+      res.render('newproject', {
+        errors:errors
+      });
+    } else {
+      let newProject = new Project({
+        name:name,
+        author:author,
+        description:description
+      });
+      newProject.save(function(err){
+        if(err){
+          console.log(err);
+          return;
+        } else {
+          req.flash('success', 'You have made a new project');
+          let pathredir = '/'+author;
+          res.redirect(pathredir);
         }
-  const author = user._id;
-  const description = req.body.description;
-  //const file = req.body.picture;
-
-  req.checkBody('name', 'Name is required').notEmpty();
-  req.checkBody('description', 'Description is required').notEmpty();
-
-  let errors = req.validationErrors();
-  if (errors){
-    res.render('newproject', {
-      errors:errors
-    });
-  } else {
-    let newProject = new Project({
-      name:name,
-      author:author,
-      description:description
-    });
-    newProject.save(function(err){
-      if(err){
-        console.log(err);
-        return;
-      } else {
-        req.flash('success', 'You have made a new project');
-        res.redirect('/');
-      }
-    });
-  }
+      });
+    }
 }
 
 var uploadImage = function(req, res) {

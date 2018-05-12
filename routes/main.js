@@ -65,37 +65,48 @@ router.post('/register', controller.createUser);
 
 // after login
 router.get('/:username', ensureAuthenticated, function(req, res){
-  // res.render('myprojects');
-    console.log(req.params.username);
-  User.find({username: req.params.username}, (err, user) => {
+  // res.render('myproject');
+    const username = req.params.username;
+  console.log(typeof req);
+    console.log(typeof req.params);
+  User.findOne({username: req.params.username}, (err, user) => {
       console.log("in main get username");
-      console.log(user);
       if (err) {
-          return;
+          console.log(err);
+
       }
-        Project.find({author: user._id}, function(err, projects){
-            if(err){
-                res.render('samepledashboard', {
-                    title: 'My Projects',
-                    projects: false,
-                    author: user
-                });
-            } else{
-                res.render('sampledashboard', {
-                    title: 'My Projects',
-                    projects: projects,
-                    author: user
-                });
-            }
-        });
-        if(err){
-            console.log(err);
-        }
+      else {
+          Project.find({author: req.params.username}, function(err, projects){
+
+              if(err){
+                  // console.log("first:");
+                  // console.log(projects);
+                  // res.render('samepledashboard', {
+                  //     title: 'My Projects',
+                  //
+                  //     projects: false,
+                  //     author: user
+                  console.log(err);
+                  //});
+              } else{
+                  console.log("second:");
+                  console.log(projects);
+                  res.render('sampledashboard', {
+                      title: 'My Projects',
+
+                      projects: projects,
+                      author: user
+                  });
+              }
+          });
+      }
+
     });
 });
 
-// add a project
+// add a projects
 router.get('/:username/newproject', ensureAuthenticated, function(req, res){
+    console.log('in new proj');
     res.render('newproject', {
         title: "New Project"
     });
