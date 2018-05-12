@@ -68,7 +68,7 @@
         <h1><%=project.name%></h1>
         <p class="by-line">by <%-project.author%></p>
         <p><%=project.description%></p>
-        <%if (user.username == project.author) {%>
+        <%if (user && (user.username == project.author)) {%>
         <input class="btn btn-primary" type="button" value="Add to timeline"
                onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
         <div class="edit_and_delete">

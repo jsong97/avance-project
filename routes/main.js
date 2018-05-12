@@ -133,15 +133,6 @@ router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
     if (err) {
       console.log(err);
 
-<<<<<<< HEAD
-         /*     } else {
-                  res.render('project', {
-                              images: images,
-                              project: project
-                          });
-
-              }*/
-=======
     } else {
       Project_Image.find({project_id: req.params.projectId}, function(err, images){
         //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
@@ -149,7 +140,6 @@ router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
           res.render('project', {
             images: false,
             project: project
->>>>>>> 53711112935a2517a4bd58ebbfa4a5de8791a7cd
           });
         } else {
           // in post make sure png n jpeg only -CHANGE FOR THIS

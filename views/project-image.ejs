@@ -64,11 +64,9 @@
     <div class="container"><br>
       <hr>
       <h1><%-image.name%></h1>
-<<<<<<< HEAD
 
-=======
       <p class="by-line">by <%-project.author%></p>
-      <%if (user) {%>
+      <%if (user && (user.username == project.author)) {%>
       <div class="edit_and_delete">
         <a href="/image/<%=image.project_id%>/<%=image._id%>/edit"/><button class="btn btn-primary btn-default" value="Edit"/>Edit</button></a>
         <a class="delete-image"><button class="btn btn-danger btn-default" data-id=<%=image._id%> data-project=<%=image.project_id%>>Delete</button></a>
@@ -80,7 +78,6 @@
         <% } else {%>
         <p> (No picture was uploaded) </p>
         <% } %>
->>>>>>> 53711112935a2517a4bd58ebbfa4a5de8791a7cd
         <div class="image-description">
           <p class="project-desc">Description</p>
           <p><%-image.imageDescription%></p>

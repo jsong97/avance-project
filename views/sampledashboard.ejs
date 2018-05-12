@@ -77,7 +77,7 @@
         <% }); %>
         </ul>
       <% }%>
-      <% if (user.username == author.username) { %>
+      <% if (user && (user.username == author.username)) { %>
         <ul>
           <a class="btn btn-primary" href="/<%=author.username%>/newproject">New Project</a>
         </ul>
