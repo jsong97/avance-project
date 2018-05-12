@@ -129,34 +129,54 @@ router.post('/:username/newproject', controller.createProject);
 // get project (with multiple images)
 router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
   Project.findById(req.params.projectId, function(err, project){
-  //var gfs = req.app.get("gfs");
-      if (err) {
-        console.log(err);
+    //var gfs = req.app.get("gfs");
+    if (err) {
+      console.log(err);
 
-      } else {
-          Project_Image.find({project_id: req.params.projectId}, function(err, images){
-              //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
-              if (err) {// || files.length === 0) {
-                  res.render('project', {
-                      images: false,
-                      project: project
-                  });
-
-              } else {
+<<<<<<< HEAD
+         /*     } else {
                   res.render('project', {
                               images: images,
                               project: project
                           });
 
-              }
+              }*/
+=======
+    } else {
+      Project_Image.find({project_id: req.params.projectId}, function(err, images){
+        //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
+        if (err) {// || files.length === 0) {
+          res.render('project', {
+            images: false,
+            project: project
+>>>>>>> 53711112935a2517a4bd58ebbfa4a5de8791a7cd
           });
-
-      }
-
+        } else {
+          // in post make sure png n jpeg only -CHANGE FOR THIS
+          res.render('project', {
+            images: images,
+            project: project
+          });
+        }
+      });
+    }
   });
 });
 
+// delete from project-image view
+router.delete('/:username/:projectId', function(req, res){
+  let query = {
+    _id:req.params.projectId
+  }
 
+  Project.remove(query, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      res.send('Success');
+    }
+  });
+});
 
 
 // Access control

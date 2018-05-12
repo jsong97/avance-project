@@ -71,6 +71,9 @@
         <%if (user.username == project.author) {%>
         <input class="btn btn-primary" type="button" value="Add to timeline"
                onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
+        <div class="edit_and_delete">
+          <a class="delete-project"><button class="btn btn-danger btn-default" data-id=<%=project._id%> data-name=<%=user.username%>>Delete</button></a>
+        </div>
         <%}%>
       </div>
 
@@ -90,7 +93,7 @@
           <div class="main-container page__container">
             <% if (images){ %>
             <% images.forEach(function(image) { %>
-            <div class="timeline">
+            <div class="timeline_norm">
 
               <div class="timeline__group">
                 <div class="timeline__box">
@@ -100,7 +103,7 @@
                   </div>
                   <div class="timeline__post">
                     <div class="timeline__content">
-                      <p><%-image.imageDescription%></p>
+                      <p onclick="window.location='/image/<%= project._id%>/<%=image._id%>';"><%-image.imageDescription%></p>
                       <% if (image.filename != "NOFILE"){ %>
                       <div class="dropdown-divider"></div>
                       <div class="timeline-image" onclick="window.location='/image/<%= project._id%>/<%=image._id%>';">
@@ -120,7 +123,7 @@
             <p>Empty Project!</p>
             <%}%>
           </div>
-          
+
           <form class="uploadComm" action="/project/addcomment" method="post">
             <input type="hidden" value="<%=project._id%>" name="pid" placeholder="title"/>
             <input class="uploadComm-Title" type="text" name="title" placeholder="title"/>
@@ -140,7 +143,7 @@
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/project_delete.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
   </body>
