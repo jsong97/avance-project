@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 
 var projectImageSchema = new mongoose.Schema(
     {
-        "grid_id": {type:Number, required:true},
+        "filename": {type:String, required:true},
         "name": {type: String, required:true},
         "uploadTime": {type: String, required: true},
         //"imageData": {type: Buffer, required: true},
         "imageDescription": {type: String, required:true},
-        "project_id": {type: Number, required: true}
+        "project_id": {type: String, required: true}
     }
 );
 

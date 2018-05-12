@@ -17,31 +17,9 @@ var controller = require('../controllers/controller.js');
 let User = require('../models/user');
 let Project = require('../models/project');
 let Image = require('../models/image');
+let Project_Image = require('../models/project_image');
 
-router.get('/:imageId', (req, res) => {
-    Image.findById(req.params.imageId, function (err, image) {
-        gfs.files.findOne({_id: image.grid_id}, (err, file) => {
-            // Check if file
-            if (!file || file.length === 0) {
-                return res.status(404).json({
-                    err: 'No file exists'
-                });
-            }
 
-            // Check if image
-            //if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-            // Read output to browser
-            const readstream = gfs.createReadStream(file.filename);
-            readstream.pipe(res);
-            // } else {
-            //    res.status(404).json({
-            //        err: 'Not an image'
-            //    });
-            // }
-
-        });
-    });
-});
 
 // get upload page
 router.get('/:username/:projectId/new/upload', ensureAuthenticated, function(req, res){
@@ -91,50 +69,57 @@ const storage = new gridFsStorage({
 const upload = multer({storage});
 // get request omitted
 router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (req, res) => {
+    //res.json({file: req.file}); return;
     if (req.file) {
         console.log("file uploaded");
+        console.log(req.file.id);
     }
     let time = new Date();
     const name = req.body.name;
     const projectId = req.params.projectId;
     const imageDescription = req.body.description;
     //const imageData = fs.readFileSync(req.body.fileToUpload);
-    const grid_id = req.file._id;
+    const filename = req.file.filename;
     const uploadTime = time.toLocaleString();
 
-    let newImage = new Image({
+    let newImage = new Project_Image({
         name:name,
         //projectId:projectId,
         imageDescription:imageDescription,
         //imageData:imageData,
-        grid_id: grid_id,
+        filename:filename,
         uploadTime:uploadTime,
         project_id: projectId
     });
 
     var redirFail = "/image/"+req.params.username+"/"+projectId+"/new/upload";
-    var redirSuccess = req.params.username+"/"+projectId;
+    var redirSuccess = "/"+req.params.username+"/"+projectId;
     newImage.save(function(err) {
         if (err) {
-            console.log('image save error');
+            console.log(err);
             req.flash('danger', 'Please try again');
             res.redirect(redirFail);
         }
-        req.flash('success', 'File uploaded!');
-        res.redirect(redirSuccess);
+        else {
+            req.flash('success', 'File uploaded!');
+            res.redirect(redirSuccess);
+        }
     });
 
 });
 
 // Get one image of a project
-router.get('/:username/:id/:imageId', ensureAuthenticated, function(req, res){
-    Image.findById(req.params.imageId, (err, image) => {
-
+router.get('/:id/:imageId', ensureAuthenticated, function(req, res){
+    Project_Image.findById(req.params.imageId, (err, image) => {
+        if (err) {
+            console.log(err);
+        }
         //gfs.files.findOne({_id: image.grid_id}, (err, file) => {
-        if (!image ){//| file.length === 0) {
-            res.render('project-image', {image: false});
+        //if (!image ){//| file.length === 0) {
+        //    res.render('project-image', {image: false});
 
-        } else {
+        //}
+        else {
             // in post make sure png n jpeg only -CHANGE FOR THIS
             res.render('project-image', {image: image});
         }

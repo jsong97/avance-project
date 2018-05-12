@@ -17,6 +17,7 @@ var controller = require('../controllers/controller.js');
 let User = require('../models/user');
 let Project = require('../models/project');
 let Image = require('../models/image');
+let Project_Image = require('../models/project_image');
 
 router.get("/", function(req, res){
   res.render('home');
@@ -119,32 +120,34 @@ router.post('/:username/newproject', controller.createProject);
 // get project (with multiple images)
 router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
   Project.findById(req.params.projectId, function(err, project){
-  //var gfs = app.get("gfs");
+  //var gfs = req.app.get("gfs");
       if (err) {
-          res.status(404).json({
-              err: 'No file exists'
-          })
-          return;
-      }
-    Image.find({project_id: project._id}, function(err, images){
-      //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
-        if (err) {// || files.length === 0) {
-          res.render('project', {
-              images: false,
-              project: project
+        console.log(err);
+
+      } else {
+          Project_Image.find({project_id: req.params.projectId}, function(err, images){
+              //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
+              if (err) {// || files.length === 0) {
+                  res.render('project', {
+                      images: false,
+                      project: project
+                  });
+
+              } else {
+                  // in post make sure png n jpeg only -CHANGE FOR THIS
+                  res.render('project', {
+                      images: images,
+                      project: project
+                  });
+              }
           });
 
-        } else {
-          // in post make sure png n jpeg only -CHANGE FOR THIS
-          res.render('project', {
-              images: images,
-              project: project
-          });
-        }
-    });
+      }
 
   });
 });
+
+
 
 
 // Access control
