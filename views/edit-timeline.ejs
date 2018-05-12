@@ -63,20 +63,8 @@
     </div>
     <div class="container"><br>
       <div class="container"><br>
-        <!-- <h1><%=project.name%></h1>
-        <p class="by-line"><%=project.author%></p>
-        <p><%=project.description%></p> -->
-        <h1><%=project.name%></h1>
-        <p class="by-line">by <%-project.author%></p>
-        <p><%=project.description%></p>
-        <%if (user) {%>
-        <input class="btn btn-primary" type="button" value="Add to timeline"
-               onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
-        <div class="edit_and_delete">
-          <input class="btn btn-default" type="button" value="Edit" href="#"/>
-          <input class="btn btn-default" type="button" value="Delete" href="#"/>
-        </div>
-        <%}%>
+        <h1>Edit Your Timeline</h1>
+        <p>Click any of the edit boxes below to edit them</p>
       </div>
 
 
@@ -95,7 +83,7 @@
           <div class="main-container page__container">
             <% if (images){ %>
             <% images.forEach(function(image) { %>
-            <div class="timeline_norm">
+            <div class="timeline_edit">
 
               <div class="timeline__group">
                 <div class="timeline__box">
@@ -108,7 +96,7 @@
                       <p><%-image.imageDescription%></p>
                       <% if (image.filename != "NOFILE"){ %>
                       <div class="dropdown-divider"></div>
-                      <div class="timeline-image" onclick="window.location='/image/<%= project._id%>/<%=image._id%>';">
+                      <div class="timeline-edit-image" onclick="window.location='/image/<%= project._id%>/<%=image._id%>';">
                         <img src="http://localhost:3000/<%=user._id%>/grid-images/<%=project._id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
 
                        <!--<img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">

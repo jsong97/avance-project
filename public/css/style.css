@@ -613,6 +613,10 @@ input.submit-button {
 
 /*==================== Project Page =======================*/
 
+.edit_and_delete > input {
+  margin: 0.4em 0.4em 0 0;
+}
+
 #project-image-author {
   margin: -2.5em 0 1em 0;
 }
@@ -627,16 +631,15 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 */
 
-.timeline{
+.timeline_norm, .timeline_edit{
   --uiTimelineMainColor: var(--timelineMainColor, #222);
   --uiTimelineSecondaryColor: var(--timelineSecondaryColor, #fff);
-
   position: relative;
   padding-top: 1.95rem;
   padding-bottom: 1.95rem;
 }
 
-.timeline:before{
+.timeline_norm:before, .timeline_edit:before{
   content: "";
   width: 4px;
   height: 100%;
@@ -718,7 +721,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 @media screen and (min-width: 641px){
 
-  .timeline:before{
+  .timeline_norm:before, .timeline_edit:before{
     left: 30px;
   }
 
@@ -743,7 +746,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 
 @media screen and (max-width: 640px){
 
-  .timeline:before{
+  .timeline_norm:before, .timeline_edit:before{
     left: 0;
   }
 
@@ -765,8 +768,13 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   }
 }
 
-.timeline{
+.timeline_norm{
   --timelineMainColor: #4557bb;
+  font-size: 16px;
+}
+
+.timeline_edit {
+  --timelineMainColor: #cc2828;
   font-size: 16px;
 }
 
@@ -873,6 +881,18 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   cursor: pointer;
 }
 
+.timeline-edit-image{
+  height: 25em;
+  /* border: 2px solid #86b7e7; */
+  border: 2px solid transparent;
+  border-image: linear-gradient(0deg, #f78411, #cc2828);
+  border-image-slice: 1;
+  border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  overflow: hidden;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
 /* Now for all the images hahahah */
 
 /* Cloud Girl*/
@@ -1139,4 +1159,3 @@ I'll debug it some other time*/
   padding: 0 2em 0 2em;
   margin: 2em 0 2em 0;
 }
-
