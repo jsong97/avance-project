@@ -95,13 +95,8 @@ var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
 
-  User.find({username: req.params.username}, (err, user) => {
-    console.log("in controller create proj");
-    console.log(user);
-    if (err) {
-      return;
-    }
-    const author = user._id;
+
+    const author = req.params.username;
     const description = req.body.description;
     //const file = req.body.picture;
 
@@ -125,11 +120,11 @@ var createProject = function(req, res){
           return;
         } else {
           req.flash('success', 'You have made a new project');
-          res.redirect('/');
+          let pathredir = '/'+author;
+          res.redirect(pathredir);
         }
       });
     }
-  });
 }
 
 var uploadImage = function(req, res) {

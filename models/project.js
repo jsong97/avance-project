@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var projectSchema = new mongoose.Schema(
   {
-    "user_id": {type: String, required:true},
+    //"user_id": {type: String, required:true},
     "name": {type: String, required: true},
     "author": {type: String, required: true},
     "description": {type: String, required: true}

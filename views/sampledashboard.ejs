@@ -65,15 +65,15 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1><%=author.name%></h1>
-      <% if (typeof projects != 'undefined') { %>
-        <p>in sample dash</p>
+      <% if (projects) { %>
+
         <ul>
         <% projects.forEach(function(project){ %>
           <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
           <% if (user) { %>
-            <li><a href="/<%=user.username%>/<%=project._id%>"><%= project.name%></a></li>
+            <li><a href="/<%=user.username%>/<%=project._id%>"><%-project.name%></a></li>
           <% } else { %>
-            <li><a href="/explore/<%=user.username%>/<%=project._id%>"><%= project.name%></a></li>
+            <li><a href="/explore/<%=user.username%>/<%=project._id%>"><%-project.name%></a></li>
           <%}%>
         <% }); %>
         </ul>
