@@ -67,11 +67,11 @@
         <p class="by-line"><%=project.author%></p>
         <p><%=project.description%></p> -->
         <h1><%=project.name%></h1>
-        <p class="by-line">by <%=author%></p>
+        <p class="by-line">by <%-project.author%></p>
         <p><%=project.description%></p>
         <%if (user) {%>
         <input class="btn btn-primary" type="button" value="Add image to project"
-               onclick="location.href='/<%=user.username%>/<%=project._id%>/upload';"/>
+               onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
         <%}%>
       </div>
 
@@ -89,9 +89,10 @@
 
         <div class="page__demo">
           <div class="main-container page__container">
-            <div class="timeline">
               <% if (images){ %>
-                <% images.forEach(function(image) { %>
+              <% images.forEach(function(image) { %>
+            <div class="timeline">
+
               <div class="timeline__group">
                 <div class="timeline__box">
                   <div class="timeline__date">
@@ -101,17 +102,14 @@
                     <div class="timeline__content">
                       <p><%image.imageDescription%></p>
                       <div class="dropdown-divider"></div>
-                      <div class="timeline-image" onclick="window.location='/<%=user.username%>/<%= project._id%>/<%=image._id%>';">
+                      <div class="timeline-image" onclick="window.location='image/<%= project._id%>/<%=image._id%>';">
                         <img src="/image/<%image.grid_id%>" alt="">
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <%})%>
-              <% } else {%>
-                <p>Empty Project!</p>
-              <%}%>
+
                 <!--<div class="timeline__box">
                   <div class="timeline__date">
                     <span class="timeline__day">12</span>
@@ -156,9 +154,14 @@
                 </div>
               </div>
             </div>-->
+                  <%})%>
+                  <% } else {%>
+                <p>               Empty Project!</p>
+                  <%}%>
           </div>
         </div>
       </div>
+
 
       <footer>
         <div class="additional__note">

@@ -64,10 +64,10 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1> Upload an Image</h1>
-      <form method="POST" enctype="multipart/form-data" action="/<%=user.username%>/<%=project._id%>/upload">
+      <form action="/image/<%=user.username%>/<%=project._id%>/new/upload" method="POST" enctype="multipart/form-data">
         <div id="form-group">
           <label>Image to Upload: </label>
-          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
         </div> <!--put check mimetype-->
         <div id="form-group">
           <label>Title:</label>
