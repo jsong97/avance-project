@@ -143,8 +143,8 @@ let main = require('./routes/main');
 app.use('/', main);
 
 // Image
-//let image = require('./routes/image');
-//app.use('/image', image);
+let image = require('./routes/image');
+app.use('/image', image);
 
 //
 /*app.use(multer({ dest: './uploads/',
