@@ -26,9 +26,7 @@ let db = mongoose.connection;
 let gfs;
 db.once('open', function(){
   gfs = grid(db.db, mongoose.mongo);
-  gfs.collection('image');
-  gfs.collection('projects');
-  gfs.collection('users');
+  gfs.collection('images');
   console.log('Connected to MongoDB');
 });
 
@@ -80,6 +78,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 let User = require('./models/user');
 let Project = require('./models/project');
 let Image = require('./models/image');
+let Project_Image = require('./models/project_image');
 
 // Session config
 app.use(session({
@@ -124,8 +123,40 @@ app.get("*", function(req, res, next){
   next();
 });
 
-// global db connection
-//app.set("gfs", gfs);
+//global db connection
+//app.set('gfsConn', gfs);
+
+app.get('/:userId/grid-images/:projId/:imageId/grid/:imageFileName', (req, res) => {
+
+    console.log('finding one image');
+    //Image.files.find(req.params.imageGridId, function (err, file) {
+     gfs.files.findOne({filename: req.params.imageFileName}, (err, file) => {
+
+        // Check if file
+         if (!file || file.length === 0) {
+             return res.status(404).json({
+                 err: 'No file exists'
+             });
+         }
+
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("got file");
+            console.log(console.log(file.filename));
+
+            // Read output to browser
+            const readstream = gfs.createReadStream(file.filename);
+            readstream.pipe(res);
+            //return res.json(file);
+
+        }
+
+
+    });
+});
+
+
 
 // Set Public Folder
 app.use(express.static(path.join(__dirname, 'public')));
