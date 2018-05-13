@@ -613,8 +613,8 @@ input.submit-button {
 
 /*==================== Project Page =======================*/
 
-.edit_and_delete > input {
-  margin: 0.4em 0.4em 0 0;
+.edit_and_delete {
+  margin: 0.4em 0.4em 1em 0;
 }
 
 #project-image-author {

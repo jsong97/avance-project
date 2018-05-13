@@ -147,35 +147,6 @@ router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
   });
 });
 
-router.get('/:username/:projectId/edit', ensureAuthenticated, function(req, res){
-  Project.findById(req.params.projectId, function(err, project){
-  //var gfs = req.app.get("gfs");
-      if (err) {
-        console.log(err);
-
-      } else {
-          Project_Image.find({project_id: req.params.projectId}, function(err, images){
-              //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
-              if (err) {// || files.length === 0) {
-                  res.render('edit-timeline', {
-                      images: false,
-                      project: project
-                  });
-
-              } else {
-                  // in post make sure png n jpeg only -CHANGE FOR THIS
-                  res.render('edit-timeline', {
-                      images: images,
-                      project: project
-                  });
-              }
-          });
-
-      }
-
-  });
-});
-
 
 // Access control
 function ensureAuthenticated(req, res, next){
