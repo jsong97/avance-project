@@ -55,6 +55,15 @@ nav li {
 
 }
 
+.search-projects {
+  text-decoration: none;
+  color: #fff;
+}
+
+.search-projects-button {
+  margin-right: 0.5em;
+}
+
 /* ============ Forum ============== */
 
 .popular-posts {
