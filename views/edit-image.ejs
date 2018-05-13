@@ -64,36 +64,34 @@
     <% if (image) {%>
     <div class="container"><br>
       <hr>
-      <h1><%-image.name%></h1>
+      <h1>Edit "<%-image.name%>"</h1>
       <p class="by-line">by <%-user.name%></p>
       <%if (user) {%>
       <div class="edit_and_delete">
-        <a href="/image/<%=image.project_id%>/<%=image._id%>/edit"/><button class="btn btn-primary btn-default" value="Edit"/>Edit</button></a>
         <a class="delete-image"><button class="btn btn-danger btn-default" data-id=<%=image._id%> data-project=<%=image.project_id%>>Delete</button></a>
       </div>
       <%}%>
       <div class="display-image">
-        <% if (image.filename != "NOFILE"){ %>
+        <p>Current Image</p>
         <img src="http://localhost:3000/<%=user._id%>/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
-        <% } else {%>
-        <p> (No picture was uploaded) </p>
-        <% } %>
-        <div class="image-description">
-          <p class="project-desc">Description</p>
-          <p><%-image.imageDescription%></p>
-        </div>
-        <div class="image-info">
-          <p></p>
-        </div><br/>
-        <p class="project-desc">Comments</p>
-        <div class="comments"><br/>
-          <div class="comment-box">
-            <p class="comment">Great work!</p>
-            <p class="commenter">Hiruko Mimi</p>
-            <input class="reply" type="text" value=" Leave a reply"/>
-            <input class="btn reply-btn" type="button" value="Reply"/>
+        </br>
+        <form action="/image/<%=image.project_id%>/<%=image._id%>/edit" method="POST" enctype="multipart/form-data">
+          <div id="form-group">
+            <label>Optional New Image: </label>
+            <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+          </div> <!--put check mimetype-->
+          <div id="form-group">
+            <label>Title:</label>
+            <input class="form-control" name="name" type="text" value="<%=image.name%>"/><br/>
+            <label>Description:</label>
+            <input class="form-control" name="description" type="text" value="<%=image.imageDescription%>"/>
           </div>
-        </div>
+          <!--<div id="form-group">
+            <label>Picture:</label>
+            <input class="form-control" name="picture" type="file"/>
+          </div>-->
+          <input class="btn btn-primary" style="margin: 1em;" type="submit" value="Submit"/>
+        </form>
       </div>
       <%} else { %>
       <p>Image not found!</p>
@@ -106,7 +104,7 @@
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/image_delete.js"></script>
+    <script src="/js/edit_image_delete.js"></script>
     <script src="/js/project_image.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
