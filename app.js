@@ -126,7 +126,7 @@ app.get("*", function(req, res, next){
 //global db connection
 //app.set('gfsConn', gfs);
 
-app.get('/grid-images/:projId/:imageId/grid/:imageFileName', (req, res) => {
+app.get('/:userId/grid-images/:projId/:imageId/grid/:imageFileName', (req, res) => {
 
     console.log('finding one image');
     //Image.files.find(req.params.imageGridId, function (err, file) {
