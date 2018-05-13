@@ -24,7 +24,31 @@ router.get("/", function(req, res){
 });
 
 router.get("/search", function(req, res){
-  res.render('search-projects');
+  // first, check if we searched for something
+  if (req.query.search){
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    Project.find({name: regex}, function(err, projects){
+      if(err){
+        console.log(err);
+      } else {
+        res.render('search-projects', {
+          projects: projects
+        })
+      }
+    });
+  }
+  // otherwise, load all projects
+  else {
+    Project.find({}, function(err, projects){
+      if (err){
+        console.log(err);
+      } else {
+        res.render('search-projects', {
+          projects: projects
+        });
+      }
+    });
+  }
 });
 
 // changing login for now
@@ -163,6 +187,9 @@ router.delete('/:username/:projectId', function(req, res){
   });
 });
 
+function escapeRegex(text){
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 // Access control
 function ensureAuthenticated(req, res, next){

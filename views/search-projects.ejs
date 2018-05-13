@@ -65,10 +65,19 @@
       <h1> Search Our Projects </h1>
       <form action="/search" method="GET" class="form-inline">
         <div class="form-group">
-          <input type="text" name="search" placeholder="Search projects..." class="form-control">
-          <input type="submit" value="Search" class="">
+          <input style="margin-right: 0.5em;" type="text" name="search" placeholder="Search projects..." class="form-control">
+          <input type="submit" value="Search" class="btn btn-default btn-primary">
         </div>
       </form>
+      <% if (projects) { %>
+
+        <ul>
+        <% projects.forEach(function(project){ %>
+          <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
+          <li><a href="/explore/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
+        <% }); %>
+        </ul>
+      <% }%>
 
 
       <footer>
