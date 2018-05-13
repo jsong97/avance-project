@@ -55,6 +55,11 @@ nav li {
 
 }
 
+.search-projects {
+  text-decoration: none;
+  color: #fff;
+}
+
 /* ============ Forum ============== */
 
 .popular-posts {
