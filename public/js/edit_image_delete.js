@@ -10,11 +10,11 @@ $(document).ready(function(){
       url: '/image/'+ project_id + '/' + imageId + '/edit',
       success: function(response){
         alert('Deleting Image');
-        window.location.href=' /image/'+ project_id;
+        window.location.href= '/image/'+ project_id;
       },
       error: function(err){
         console.log(err);
       }
-    })
+    });
   });
 });

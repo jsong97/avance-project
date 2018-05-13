@@ -73,7 +73,7 @@
         <input class="btn btn-primary" type="button" value="Add to timeline"
                onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
         <div class="edit_and_delete">
-          <a class="delete-project"><button class="btn btn-danger btn-default" data-id=<%=project._id%>/>Delete</button></a>
+          <a class="delete-project"><button class="btn btn-danger btn-default" data-id=<%=project._id%> data-name=<%=user.username%>>Delete</button></a>
         </div>
         <%}%>
       </div>
@@ -144,7 +144,7 @@
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/project_delete.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
   </body>
