@@ -1,11 +1,28 @@
 const express = require('express');
 const router = express.Router();
-var User = require('../models/user');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const path = require('path');
+const multer = require('multer');
+const gridFsStorage = require('multer-gridfs-storage');
+const crypto = require('crypto');
+const grid = require('gridfs-stream');
+const methodOverride = require('method-override');
 
-router.get('/forum', function(req, res, next){
-  var users = User.find();
-  res.render('forum', { title: 'Users', users: users});
-});
+
+// Bring in controller
+var controller = require('../controllers/controller.js');
+
+
+let User = require('../models/user');
+let Project = require('../models/project');
+let Image = require('../models/image');
+let Project_Image = require('../models/project_image');
+
+//router.get('/forum', function(req, res, next){
+//  var users = User.find();
+//  res.render('forum', { title: 'Users', users: users});
+//});
 
 router.get('/mission', function(req, res){
   res.render('mission');
@@ -18,6 +35,105 @@ router.get('/support', function(req, res){
 router.get('/team', function(req, res){
   res.render('team');
 });
+
+
+router.get('/:username', function(req, res){
+    // res.render('myproject');
+    const username = req.params.username;
+    console.log(typeof req);
+    console.log(typeof req.params);
+    User.findOne({username: req.params.username}, (err, user) => {
+        console.log("in main get username");
+        if (err) {
+            console.log(err);
+
+        }
+        else {
+            Project.find({author: req.params.username}, function(err, projects){
+
+                if(err){
+                    // console.log("first:");
+                    // console.log(projects);
+                    // res.render('samepledashboard', {
+                    //     title: 'My Projects',
+                    //
+                    //     projects: false,
+                    //     author: user
+                    console.log(err);
+                    //});
+                } else{
+                    console.log("second:");
+                    console.log(projects);
+                    res.render('sampledashboard', {
+                        title: 'My Projects',
+
+                        projects: projects,
+                        author: user
+                    });
+                }
+            });
+        }
+
+    });
+});
+
+
+// get project (with multiple images)
+router.get('/:username/:projectId', function(req, res){
+    Project.findById(req.params.projectId, function(err, project){
+        //var gfs = req.app.get("gfs");
+        if (err) {
+            console.log(err);
+
+        } else {
+            Project_Image.find({project_id: req.params.projectId}, function(err, images){
+                //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
+                if (err) {// || files.length === 0) {
+                    res.render('project', {
+                        images: false,
+                        project: project
+                    });
+
+                } else {
+                    res.render('project', {
+                        images: images,
+                        project: project
+                    });
+                }
+            });
+
+        }
+
+    });
+});
+// Get one image of a project
+router.get('/:id/:imageId', function(req, res){
+    Project_Image.findById(req.params.imageId, (err, image) => {
+        if (err) {
+            console.log(err);
+        }
+        //gfs.files.findOne({_id: image.grid_id}, (err, file) => {
+        //if (!image ){//| file.length === 0) {
+        //    res.render('project-image', {image: false});
+
+        //}
+        else {
+            // in post make sure png n jpeg only -CHANGE FOR THIS
+            Project.findById(image.project_id, function(err, project) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                   res.render('project-image', {image: image, project:project});
+
+                }
+            });
+        }
+    });
+});
+
+
+/*
 
 router.get('/:id', function(req, res){
   res.render('other-user');
@@ -68,6 +184,6 @@ router.get('/:id/:id', function(req, res){
 
 router.get('/:id/:id/:id', function(req, res){
   res.render('other-user-project-image');
-});
+});*/
 
 module.exports = router;

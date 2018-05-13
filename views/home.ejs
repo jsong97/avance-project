@@ -15,6 +15,7 @@
 
       <div class="collapse navbar-collapse" id="collapse-target">
         <a class="navbar-brand" href="/"><img class="logo" src="/css/avance_images/Alogo.png"></a>
+        <a class="search-projects" href="/search">Search Projects</a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
@@ -26,7 +27,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/explore/team">Our team</a>
               <a class="dropdown-item" href="/explore/support">Support</a>
-              <a class="dropdown-item" href="/explore/forum">Forum</a>
+
             </div>
           </li>
           <li class="nav-item">
@@ -105,12 +106,21 @@
           </div>
         </div>
       </div>
-
+      <h2> Explore Projects </h2>
       <div class="all-projects">
-        <div class="box1 openBtn" id="explore_proj_1">
-          <p> Night Scene</p>
-        </div>
-        <div class="box2 openBtn" id="explore_proj_2">
+
+        <%if (projects) {%>
+            <%projects.forEach(function(project) {%>
+               <ul>
+                 <li><a href="/explore/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
+               </ul>
+
+
+
+            <%})%>
+        <%}%>
+
+        <!--<div class="box2 openBtn" id="explore_proj_2">
           <p> Summer girl</p>
         </div>
         <div class="box3 openBtn" id="explore_proj_3">
@@ -133,7 +143,7 @@
         </div>
         <div class="box9 openBtn" id="explore_proj_9">
           <p> Photos in the Wild</p>
-        </div>
+        </div>-->
       </div>
 
       <!-- Modal -->

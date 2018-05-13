@@ -79,15 +79,10 @@ router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (
     const projectId = req.params.projectId;
     const imageDescription = req.body.description;
     //const imageData = fs.readFileSync(req.body.fileToUpload);
-    var hasFile = 0;
     var filename = "NOFILE";
     if (req.file !== undefined){
       filename = req.file.filename;
-      hasFile = 1;
     }
-    console.log("filename is: \n");
-    console.log(filename);
-    console.log(hasFile);
     const uploadTime = time.toLocaleString();
     let readableTime = moment(uploadTime);
     let uploadDay = readableTime.format('DD');
@@ -132,9 +127,101 @@ router.get('/:id/:imageId', ensureAuthenticated, function(req, res){
         //}
         else {
             // in post make sure png n jpeg only -CHANGE FOR THIS
-            res.render('project-image', {image: image});
+            Project.findById(image.project_id, function(err, project) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                   res.render('project-image', {image: image, project:project});
+                }
+            });
         }
     });
+});
+
+// delete from project-image view
+router.delete('/:id/:imageId', function(req, res){
+  let query = {
+    _id:req.params.imageId
+  }
+
+  Project_Image.remove(query, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      res.send('Success');
+    }
+  });
+});
+
+// Load edit form
+// Get one image of a project
+router.get('/:id/:imageId/edit', ensureAuthenticated, function(req, res){
+    Project_Image.findById(req.params.imageId, (err, image) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // in post make sure png n jpeg only -CHANGE FOR THIS
+            res.render('edit-image', {
+              image: image,
+          });
+        }
+    });
+});
+
+
+// update image post
+router.post('/:id/:imageId/edit', upload.single('fileToUpload'), (req, res) => {
+  Project_Image.findById(req.params.imageId, (err, image) => {
+      if (err) {
+          console.log(err);
+      }
+      else {
+        var filename = image.filename;
+        if (req.file !== undefined){
+          filename = req.file.filename;
+        }
+        let updateImage = {};
+        updateImage.name = req.body.name;
+        updateImage.imageDescription = req.body.description;
+        updateImage.filename = filename;
+        updateImage.uploadDay = image.uploadDay;
+        updateImage.uploadMonth = image.uploadMonth;
+        updateImage.project_id = image.project_id;
+
+        let query = {_id: req.params.imageId};
+
+        var redirFail = "/image/"+req.params.id+"/"+req.params.imageId+"/edit";
+        var redirSuccess = "/image/"+req.params.id+"/"+req.params.imageId;
+        Project_Image.update(query, updateImage, function(err){
+          if (err) {
+              console.log(err);
+              req.flash('danger', 'Please try again');
+              res.redirect(redirFail);
+          }
+          else {
+              req.flash('success', 'Image has been changed!');
+              res.redirect(redirSuccess);
+          }
+        });
+      }
+  });
+});
+
+// delete from edit-image view
+router.delete('/:id/:imageId/edit', function(req, res){
+  let query = {
+    _id:req.params.imageId
+  }
+
+  Project_Image.remove(query, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      res.send('Success');
+    }
+  });
 });
 
 

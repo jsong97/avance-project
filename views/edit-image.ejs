@@ -15,7 +15,6 @@
 
       <div class="collapse navbar-collapse" id="collapse-target">
         <a class="navbar-brand" href="/"><img class="logo" src="/css/avance_images/Alogo.png"></a>
-        <a class="search-projects" href="/search">Search Projects</a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
@@ -27,6 +26,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/explore/team">Our team</a>
               <a class="dropdown-item" href="/explore/support">Support</a>
+              <a class="dropdown-item" href="/explore/forum">Forum</a>
             </div>
           </li>
           <li class="nav-item">
@@ -34,7 +34,7 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/<%=user._id%>s">Dashboard</a>
+              <a class="nav-link" href="/<%=user.username%>">Dashboard</a>
             </li>
             <li>
               <a class="nav-link" href="/logout">Logout</a>
@@ -54,32 +54,58 @@
     <%- messages('my_message_template', locals) %>
 
 
-    <!-- Progress Bar -->
     <div class="container">
       <ul class="progressbar">
-        <li class="active">Explore</li>
-        <li>Project</li>
-        <li>Image</li>
+        <li class="active">Login</li>
+        <li class="active">Dashboard</li>
+        <li class="active">Project</li>
       </ul>
     </div>
-
-
+    <% if (image) {%>
     <div class="container"><br>
-      <!-- Code here -->
-      <h1> Our mission </h1>
-      <div class="mission-image">
-        <img src="/css/users/demo_user/images/border-collie.jpg"></img>
+      <hr>
+      <h1>Edit "<%-image.name%>"</h1>
+      <p class="by-line">by <%-user.name%></p>
+      <%if (user) {%>
+      <div class="edit_and_delete">
+        <a class="delete-image"><button class="btn btn-danger btn-default" data-id=<%=image._id%> data-project=<%=image.project_id%>>Delete</button></a>
       </div>
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <%}%>
+      <div class="display-image">
+        <p>Current Image</p>
+        <img src="http://localhost:3000/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
+        </br>
+        <form action="/image/<%=image.project_id%>/<%=image._id%>/edit" method="POST" enctype="multipart/form-data">
+          <div id="form-group">
+            <label>Optional New Image: </label>
+            <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+          </div> <!--put check mimetype-->
+          <div id="form-group">
+            <label>Title:</label>
+            <input class="form-control" name="name" type="text" value="<%=image.name%>"/><br/>
+            <label>Description:</label>
+            <input class="form-control" name="description" type="text" value="<%=image.imageDescription%>"/>
+          </div>
+          <!--<div id="form-group">
+            <label>Picture:</label>
+            <input class="form-control" name="picture" type="file"/>
+          </div>-->
+          <input class="btn btn-primary" style="margin: 1em;" type="submit" value="Submit"/>
+        </form>
       </div>
+      <%} else { %>
+      <p>Image not found!</p>
+      <%}%>
+
+
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/edit_image_delete.js"></script>
+    <script src="/js/project_image.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
   </body>
