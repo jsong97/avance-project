@@ -69,11 +69,15 @@
       <%if (user) {%>
       <div class="edit_and_delete">
         <a href="/image/<%=image.project_id%>/<%=image._id%>/edit"/><button class="btn btn-primary btn-default" value="Edit"/>Edit</button></a>
-        <a href="/image/<%=image.project_id%>/<%=image._id%>/edit"/><button class="btn btn-danger btn-default" value="Edit"/>Delete</button></a>
+        <a class="delete-image"><button class="btn btn-danger btn-default" data-id=<%=image._id%> data-project=<%=image.project_id%>>Delete</button></a>
       </div>
       <%}%>
       <div class="display-image">
+        <% if (image.filename != "NOFILE"){ %>
         <img src="http://localhost:3000/<%=user._id%>/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
+        <% } else {%>
+        <p> (No picture was uploaded) </p>
+        <% } %>
         <div class="image-description">
           <p class="project-desc">Description</p>
           <p><%-image.imageDescription%></p>
@@ -102,7 +106,7 @@
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/image_delete.js"></script>
     <script src="/js/project_image.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">

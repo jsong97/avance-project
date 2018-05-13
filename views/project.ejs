@@ -73,7 +73,7 @@
         <input class="btn btn-primary" type="button" value="Add to timeline"
                onclick="location.href='/image/<%=user.username%>/<%=project._id%>/new/upload';"/>
         <div class="edit_and_delete">
-          <input class="btn btn-default" type="button" value="Delete" href="#"/>
+          <a class="delete-project"><button class="btn btn-danger btn-default" data-id=<%=project._id%>/>Delete</button></a>
         </div>
         <%}%>
       </div>
@@ -104,7 +104,7 @@
                   </div>
                   <div class="timeline__post">
                     <div class="timeline__content">
-                      <p><%-image.imageDescription%></p>
+                      <p onclick="window.location='/image/<%= project._id%>/<%=image._id%>';"><%-image.imageDescription%></p>
                       <% if (image.filename != "NOFILE"){ %>
                       <div class="dropdown-divider"></div>
                       <div class="timeline-image" onclick="window.location='/image/<%= project._id%>/<%=image._id%>';">

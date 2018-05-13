@@ -68,7 +68,7 @@
       <p class="by-line">by <%-user.name%></p>
       <%if (user) {%>
       <div class="edit_and_delete">
-        <input class="btn btn-default" type="button" value="Delete" href="#"/>
+        <a class="delete-image"><button class="btn btn-danger btn-default" data-id=<%=image._id%> data-project=<%=image.project_id%>>Delete</button></a>
       </div>
       <%}%>
       <div class="display-image">
@@ -104,7 +104,7 @@
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/edit_image_delete.js"></script>
     <script src="/js/project_image.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">

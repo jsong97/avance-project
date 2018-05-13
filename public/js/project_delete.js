@@ -1,0 +1,19 @@
+$(document).ready(function(){
+  $('.delete-project').on('click', function(e){
+    $target = $(e.target);
+    const project_id = $target.attr('data-id');
+    // const id = $target.attr('data-id');
+    // const project_id = $target.attr('')
+    $.ajax({
+      type: 'DELETE',
+      url: '/image/'+ project_id + '/' + imageId,
+      success: function(response){
+        alert('Deleting Image');
+        window.location.href=' /image/'+ project_id;
+      },
+      error: function(err){
+        console.log(err);
+      }
+    })
+  });
+});

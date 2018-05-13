@@ -132,6 +132,21 @@ router.get('/:id/:imageId', ensureAuthenticated, function(req, res){
     });
 });
 
+// delete from project-image view
+router.delete('/:id/:imageId', function(req, res){
+  let query = {
+    _id:req.params.imageId
+  }
+
+  Project_Image.remove(query, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      res.send('Success');
+    }
+  });
+});
+
 // Load edit form
 // Get one image of a project
 router.get('/:id/:imageId/edit', ensureAuthenticated, function(req, res){
@@ -184,6 +199,21 @@ router.post('/:id/:imageId/edit', upload.single('fileToUpload'), (req, res) => {
           }
         });
       }
+  });
+});
+
+// delete from edit-image view
+router.delete('/:id/:imageId/edit', function(req, res){
+  let query = {
+    _id:req.params.imageId
+  }
+
+  Project_Image.remove(query, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      res.send('Success');
+    }
   });
 });
 
