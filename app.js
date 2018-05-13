@@ -149,6 +149,10 @@ app.use('/', main);
 let addComment = require('./routes/addComment');
 app.use('/project/addcomment', addComment);
 
+// add project comment
+let addComment = require('./routes/addComment');
+app.use('/project/addcomment', addComment);
+
 // Image
 //let image = require('./routes/image');
 //app.use('/image', image);
