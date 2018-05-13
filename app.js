@@ -177,6 +177,10 @@ app.use('/', main);
 let image = require('./routes/image');
 app.use('/image', image);
 
+// add project comment
+let addComment = require('./routes/addComment');
+app.use('/project/addcomment', addComment);
+
 //
 /*app.use(multer({ dest: './uploads/',
 rename: function (fieldname, filename) {
