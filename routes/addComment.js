@@ -15,6 +15,7 @@ router.post('/',  (req, res, next) => {
 
     console.log(req.session);
     let comment = new Comment({
+<<<<<<< HEAD
         projectId: projectID,
         title:titleText,
         comments:commentText,
@@ -24,4 +25,15 @@ router.post('/',  (req, res, next) => {
     res.end("Comment Post successfully");
 });
 
+=======
+            projectId: projectID,
+            title:titleText,
+            comments:commentText,
+        });
+
+    comment.save();
+    res.end("Comment Post successfully");
+});
+
+>>>>>>> parent of 9027dfb... Comment part
 module.exports = router;

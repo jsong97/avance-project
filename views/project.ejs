@@ -121,12 +121,12 @@
             <p>Empty Project!</p>
             <%}%>
           </div>
-
+          
           <form class="uploadComm" action="/project/addcomment" method="post">
-            <input type="hidden" value="<%=project._id%>" name="pid"/>
-            <input class="uploadComm-Title" type="text" name="title" placeholder="Your name"/>
+            <input type="hidden" value="<%=project._id%>" name="pid" placeholder="title"/>
+            <input class="uploadComm-Title" type="text" name="title" placeholder="title"/>
             <textarea class="uploadComm-Textarea" name="comment"  placeholder="comments"/></textarea>
-            <input  class="uploadComm-Submit" type="submit" value="Comment"/>
+            <input class="uploadComm-Submit" type="submit" value="Comment"/>
           </form>
         </div>
       </div>
