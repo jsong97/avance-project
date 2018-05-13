@@ -1,64 +1,27 @@
 /**
  * Add project comment
+ * *//**
+ * Add project comment
  * */
-const express = require('express');
-const bcrypt = require('bcryptjs');
 const passport = require('passport');
+let express = require('express');
 let router = express.Router();
 let Comment  = require("../models/comment");
-// Bring in controller
-var controller = require('../controllers/controller.js');
+router.post('/',  (req, res, next) => {
 
-// get the comment
-router.get('/', ensureAuthenticated, function(req, res){;
-    Comment.find({}, function(err, addComment){
-        if(err){
-            console.log(err);
-        } else{
-            res.render('project', {
-                projectId: projectID,
-                title:titleText,
-                comments:commentText,
-            });
-        }
-    });
-});
+    let projectID = req.body.pid;
+    let titleText = req.body.title;
+    let commentText = req.body.comment;
 
-
-// add comment
-router.get('/project', ensureAuthenticated, function(req, res){
-    var id = req.params.id;
-    res.render('project', {
+    console.log(req.session);
+    let comment = new Comment({
         projectId: projectID,
         title:titleText,
         comments:commentText,
     });
+
+    comment.save();
+    res.end("Comment Post successfully");
 });
-
-router.post('/project', controller.UploadComment);
-
-// Get comments
-router.get('/:id', function(req, res){
-    Comment.findById(req.params.id, function(err, addcomment){
-        Project.findById(project.author, function(err, project){
-            res.render('project', {
-                projectId: projectID,
-                title:titleText,
-                comments:commentText,
-            });
-        });
-        return;
-    });
-});
-
-// Access control
-function ensureAuthenticated(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    } else {
-        req.flash('danger', 'Please login');
-        res.redirect('/login');
-    }
-}
 
 module.exports = router;
