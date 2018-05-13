@@ -11,6 +11,9 @@ var User = mongoose.model('User');
 // this is the 'Project' model
 var Project = mongoose.model('Project');
 
+// this is the 'Comment' model
+let Comment  = require("../models/comment");
+
 //var Image = mongoose.model('Image');
 
 
@@ -175,11 +178,37 @@ function formatDate(date) {
   return day + ' ' + monthNames[monthIndex] + ' ' + year;
 }
 
+
+var UploadComment = function(req, res){
+    console.log(req.body);
+    let projectID = req.body.pid;
+    let titleText = req.body.title;
+    let commentText = req.body.comment;
+    console.log(req.session);
+    req.checkBody('titleText', 'Name is required').notEmpty();
+    req.checkBody('commentText', 'comment is required').notEmpty();
+
+        let comment = new Comment({
+            projectId: projectID,
+            title:titleText,
+            comments:commentText,
+        });
+        comment.save(function(err) {
+            if (err) {
+                res.flash("Comment not save!");
+            }
+            res.end("Comment post sucessfully!.");
+        });
+    }
+
+
+
 module.exports = {
   fetchHome,
   createUser,
   findAllUsers,
   findOneUser,
   createProject,
-  uploadImage
+  uploadImage,
+    UploadComment
 };
