@@ -27,6 +27,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/explore/team">Our team</a>
               <a class="dropdown-item" href="/explore/support">Support</a>
+              <a class="dropdown-item" href="/explore/forum">Forum</a>
             </div>
           </li>
           <li class="nav-item">
@@ -34,7 +35,7 @@
           </li>
           <% if (user) { %>
             <li>
-              <a class="nav-link" href="/<%=user._id%>s">Dashboard</a>
+              <a class="nav-link" href="/<%=user.username%>">Dashboard</a>
             </li>
             <li>
               <a class="nav-link" href="/logout">Logout</a>
@@ -54,32 +55,40 @@
     <%- messages('my_message_template', locals) %>
 
 
-    <!-- Progress Bar -->
     <div class="container">
       <ul class="progressbar">
-        <li class="active">Explore</li>
-        <li>Project</li>
-        <li>Image</li>
+        <li class="active">Login</li>
+        <li class="active">Dashboard</li>
+        <li class="active">Project</li>
       </ul>
     </div>
-
-
     <div class="container"><br>
-      <!-- Code here -->
-      <h1> Our mission </h1>
-      <div class="mission-image">
-        <img src="/css/users/demo_user/images/border-collie.jpg"></img>
-      </div>
-      <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+      <h1> Search Our Projects </h1>
+      <form action="/search" method="GET" class="form-inline">
+        <div class="form-group">
+          <input style="margin-right: 0.5em;" type="text" name="search" placeholder="Search projects..." class="form-control">
+          <input type="submit" value="Search" class="btn btn-default btn-primary">
+        </div>
+      </form>
+      <% if (projects) { %>
+
+        <ul>
+        <% projects.forEach(function(project){ %>
+          <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
+          <li><a href="/explore/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
+        <% }); %>
+        </ul>
+      <% }%>
+
+
       <footer>
         <p>Copyright &copy; 2018</p>
       </footer>
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/image_delete.js"></script>
+    <script src="/js/project_image.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
   </body>
