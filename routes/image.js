@@ -69,49 +69,49 @@ const storage = new gridFsStorage({
 const upload = multer({storage});
 // get request omitted
 router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (req, res) => {
-    //res.json({file: req.file}); return;
-    if (req.file) {
-        console.log("file uploaded");
-        console.log(req.file.id);
-    }
-    let time = new Date();
-    const name = req.body.name;
-    const projectId = req.params.projectId;
-    const imageDescription = req.body.description;
-    //const imageData = fs.readFileSync(req.body.fileToUpload);
-    var filename = "NOFILE";
-    if (req.file !== undefined){
-      filename = req.file.filename;
-    }
-    const uploadTime = time.toLocaleString();
-    let readableTime = moment(uploadTime);
-    let uploadDay = readableTime.format('DD');
-    let uploadMonth = readableTime.format('MMMM');
+  //res.json({file: req.file}); return;
+  if (req.file) {
+    console.log("file uploaded");
+    console.log(req.file.id);
+  }
+  let time = new Date();
+  const name = req.body.name;
+  const projectId = req.params.projectId;
+  const imageDescription = req.body.description;
+  //const imageData = fs.readFileSync(req.body.fileToUpload);
+  var filename = "NOFILE";
+  if (req.file !== undefined){
+    filename = req.file.filename;
+  }
+  const uploadTime = time.toLocaleString();
+  let readableTime = moment(uploadTime);
+  let uploadDay = readableTime.format('DD');
+  let uploadMonth = readableTime.format('MMMM');
 
-    let newImage = new Project_Image({
-      name:name,
-      //projectId:projectId,
-      imageDescription:imageDescription,
-      //imageData:imageData,
-      filename:filename,
-      uploadDay:uploadDay,
-      uploadMonth:uploadMonth,
-      project_id:projectId
-    });
+  let newImage = new Project_Image({
+    name:name,
+    //projectId:projectId,
+    imageDescription:imageDescription,
+    //imageData:imageData,
+    filename:filename,
+    uploadDay:uploadDay,
+    uploadMonth:uploadMonth,
+    project_id:projectId
+  });
 
-    var redirFail = "/image/"+req.params.username+"/"+projectId+"/new/upload";
-    var redirSuccess = "/"+req.params.username+"/"+projectId;
-    newImage.save(function(err) {
-        if (err) {
-            console.log(err);
-            req.flash('danger', 'Please try again');
-            res.redirect(redirFail);
-        }
-        else {
-            req.flash('success', 'File uploaded!');
-            res.redirect(redirSuccess);
-        }
-    });
+  var redirFail = "/image/"+req.params.username+"/"+projectId+"/new/upload";
+  var redirSuccess = "/"+req.params.username+"/"+projectId;
+  newImage.save(function(err) {
+    if (err) {
+      console.log(err);
+      req.flash('danger', 'Please try again');
+      res.redirect(redirFail);
+    }
+    else {
+      req.flash('success', 'File uploaded!');
+      res.redirect(redirSuccess);
+    }
+  });
 });
 
 // Get one image of a project
