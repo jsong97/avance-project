@@ -9,7 +9,7 @@ let router = express.Router();
 let Comments  = require("../models/comments");
 
 
-router.post('/:projectauthor/:projectId/addcomment',  (req, res, next) => {
+router.post('/:projectauthor/:projectId/addcomment',  ensureAuthenticated, (req, res, next) => {
   console.log(req.body);
   const author = req.body.comment_author;
   const project_id = req.body.project_id;
@@ -20,7 +20,7 @@ router.post('/:projectauthor/:projectId/addcomment',  (req, res, next) => {
 
   let errors = req.validationErrors();
   if (errors){
-    res.render('home', {
+    res.render('project', {
       errors:errors
     });
   } else {
@@ -37,10 +37,21 @@ router.post('/:projectauthor/:projectId/addcomment',  (req, res, next) => {
         req.flash('success', 'You have made a new comment');
         // this next part is just copy pasted res.render to replace
         // res.redirect cause I couldn't be bothered to make it work
-        res.redirect('/');
+        var redir = '/'+author+'/'+project_id;
+        res.redirect(redir);
       }
     });
   }
 });
+
+// Access control
+function ensureAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    } else {
+        req.flash('danger', 'Please login');
+        res.redirect('/login');
+    }
+}
 
 module.exports = router;
