@@ -15,7 +15,6 @@
 
       <div class="collapse navbar-collapse" id="collapse-target">
         <a class="navbar-brand" href="/"><img class="logo" src="/css/avance_images/Alogo.png"></a>
-        <a class="search-projects" href="/search">Search Projects</a>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">
@@ -27,6 +26,7 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/explore/team">Our team</a>
               <a class="dropdown-item" href="/explore/support">Support</a>
+              <a class="dropdown-item" href="/explore/forum">Forum</a>
             </div>
           </li>
           <li class="nav-item">
@@ -53,7 +53,7 @@
 
     <%- messages('my_message_template', locals) %>
 
-
+    
     <div class="container">
       <ul class="progressbar">
         <li class="active">Login</li>
@@ -65,20 +65,12 @@
     <div class="container"><br>
       <hr>
       <h1><%-image.name%></h1>
-
-      <p class="by-line">by <%-project.author%></p>
-      <%if (user && (user.username == project.author)) {%>
-      <div class="edit_and_delete">
-        <a href="/image/<%=image.project_id%>/<%=image._id%>/edit"/><button class="btn btn-primary btn-default" value="Edit"/>Edit</button></a>
-        <a class="delete-image"><button class="btn btn-danger btn-default" data-id=<%=image._id%> data-project=<%=image.project_id%>>Delete</button></a>
-      </div>
-      <%}%>
+      <p class="by-line">by <%-user.name%></p>
       <div class="display-image">
-        <% if (image.filename != "NOFILE"){ %>
-        <img src="http://localhost:3000/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
-        <% } else {%>
-        <p> (No picture was uploaded) </p>
-        <% } %>
+        <!--
+        <img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">
+        -->
+        <img src="http://localhost:3000/<%=user._id%>/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
         <div class="image-description">
           <p class="project-desc">Description</p>
           <p><%-image.imageDescription%></p>
@@ -107,7 +99,7 @@
     </div>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/js/image_delete.js"></script>
+    <script src="/js/main.js"></script>
     <script src="/js/project_image.js"></script>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">

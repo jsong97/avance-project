@@ -20,44 +20,7 @@ let Image = require('../models/image');
 let Project_Image = require('../models/project_image');
 
 router.get("/", function(req, res){
-  Project.find({}, function(err, projects) {
-      if (err){
-          console.log(err);
-      } else {
-          res.render('home', {
-              projects:projects
-          });
-      }
-  })
-
-});
-
-router.get("/search", function(req, res){
-  // first, check if we searched for something
-  if (req.query.search){
-    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-    Project.find({name: regex}, function(err, projects){
-      if(err){
-        console.log(err);
-      } else {
-        res.render('search-projects', {
-          projects: projects
-        })
-      }
-    });
-  }
-  // otherwise, load all projects
-  else {
-    Project.find({}, function(err, projects){
-      if (err){
-        console.log(err);
-      } else {
-        res.render('search-projects', {
-          projects: projects
-        });
-      }
-    });
-  }
+  res.render('home');
 });
 
 // changing login for now
@@ -157,48 +120,35 @@ router.post('/:username/newproject', controller.createProject);
 // get project (with multiple images)
 router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
   Project.findById(req.params.projectId, function(err, project){
-    //var gfs = req.app.get("gfs");
-    if (err) {
-      console.log(err);
+  //var gfs = req.app.get("gfs");
+      if (err) {
+        console.log(err);
 
-    } else {
-      Project_Image.find({project_id: req.params.projectId}, function(err, images){
-        //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
-        if (err) {// || files.length === 0) {
-          res.render('project', {
-            images: false,
-            project: project
+      } else {
+          Project_Image.find({project_id: req.params.projectId}, function(err, images){
+              //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
+              if (err) {// || files.length === 0) {
+                  res.render('project', {
+                      images: false,
+                      project: project
+                  });
+
+              } else {
+                  // in post make sure png n jpeg only -CHANGE FOR THIS
+                  res.render('project', {
+                      images: images,
+                      project: project
+                  });
+              }
           });
-        } else {
-          // in post make sure png n jpeg only -CHANGE FOR THIS
-          res.render('project', {
-            images: images,
-            project: project
-          });
-        }
-      });
-    }
+
+      }
+
   });
 });
 
-// delete from project-image view
-router.delete('/:username/:projectId', function(req, res){
-  let query = {
-    _id:req.params.projectId
-  }
 
-  Project.remove(query, function(err){
-    if(err){
-      console.log(err);
-    } else {
-      res.send('Success');
-    }
-  });
-});
 
-function escapeRegex(text){
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
 
 // Access control
 function ensureAuthenticated(req, res, next){
