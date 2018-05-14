@@ -11,7 +11,7 @@ let Comments  = require("../models/comments");
 
 router.post('/:projectauthor/:projectId/addcomment',  (req, res, next) => {
   console.log(req.body);
-  const author = req.params.projectauthor;
+  const author = req.body.comment_author;
   const project_id = req.body.project_id;
   const body = req.body.body;
   //const file = req.body.picture;
@@ -35,8 +35,9 @@ router.post('/:projectauthor/:projectId/addcomment',  (req, res, next) => {
         return;
       } else {
         req.flash('success', 'You have made a new comment');
-        let pathredir = '/';
-        res.redirect(pathredir);
+        // this next part is just copy pasted res.render to replace
+        // res.redirect cause I couldn't be bothered to make it work
+        res.redirect('/');
       }
     });
   }

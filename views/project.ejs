@@ -138,6 +138,7 @@
 
           <form class="uploadComm" action="/comments/<%=project.author%>/<%= project._id%>/addcomment" method="POST">
             <input type="hidden" value="<%=project._id%>" name="project_id"/>
+            <input type="hidden" value="<%=user.username%>" name="comment_author"/>
             <textarea class="uploadComm-Textarea" name="body"  placeholder="comments"/></textarea>
             <input class="uploadComm-Submit" type="submit" value="Comment"/>
           </form>
