@@ -104,42 +104,38 @@ router.post('/register', controller.createUser);
 // after login
 router.get('/:username', ensureAuthenticated, function(req, res){
   // res.render('myproject');
-    const username = req.params.username;
+  const username = req.params.username;
   console.log(typeof req);
-    console.log(typeof req.params);
+  console.log(typeof req.params);
   User.findOne({username: req.params.username}, (err, user) => {
-      console.log("in main get username");
-      if (err) {
+    console.log("in main get username");
+    if (err) {
+      console.log(err);
+    }
+    else {
+      Project.find({author: req.params.username}, function(err, projects){
+        if(err){
+          // console.log("first:");
+          // console.log(projects);
+          // res.render('samepledashboard', {
+          //     title: 'My Projects',
+          //
+          //     projects: false,
+          //     author: user
           console.log(err);
-
-      }
-      else {
-          Project.find({author: req.params.username}, function(err, projects){
-
-              if(err){
-                  // console.log("first:");
-                  // console.log(projects);
-                  // res.render('samepledashboard', {
-                  //     title: 'My Projects',
-                  //
-                  //     projects: false,
-                  //     author: user
-                  console.log(err);
-                  //});
-              } else{
-                  console.log("second:");
-                  console.log(projects);
-                  res.render('sampledashboard', {
-                      title: 'My Projects',
-
-                      projects: projects,
-                      author: user
-                  });
-              }
+          //});
+        } else{
+          console.log("second:");
+          console.log(projects);
+          res.render('sampledashboard', {
+            title: 'My Projects',
+            projects: projects,
+            author: user
           });
-      }
-
-    });
+        }
+      });
+    }
+  });
 });
 
 // add a projects

@@ -97,37 +97,35 @@ var findOneUser = function(req, res){
 var createProject = function(req, res){
   console.log(req.body);
   const name = req.body.name;
+  const author = req.params.username;
+  const description = req.body.description;
+  //const file = req.body.picture;
 
+  req.checkBody('name', 'Name is required').notEmpty();
+  req.checkBody('description', 'Description is required').notEmpty();
 
-    const author = req.params.username;
-    const description = req.body.description;
-    //const file = req.body.picture;
-
-    req.checkBody('name', 'Name is required').notEmpty();
-    req.checkBody('description', 'Description is required').notEmpty();
-
-    let errors = req.validationErrors();
-    if (errors){
-      res.render('newproject', {
-        errors:errors
-      });
-    } else {
-      let newProject = new Project({
-        name:name,
-        author:author,
-        description:description
-      });
-      newProject.save(function(err){
-        if(err){
-          console.log(err);
-          return;
-        } else {
-          req.flash('success', 'You have made a new project');
-          let pathredir = '/'+author;
-          res.redirect(pathredir);
-        }
-      });
-    }
+  let errors = req.validationErrors();
+  if (errors){
+    res.render('newproject', {
+      errors:errors
+    });
+  } else {
+    let newProject = new Project({
+      name:name,
+      author:author,
+      description:description
+    });
+    newProject.save(function(err){
+      if(err){
+        console.log(err);
+        return;
+      } else {
+        req.flash('success', 'You have made a new project');
+        let pathredir = '/'+author;
+        res.redirect(pathredir);
+      }
+    });
+  }
 }
 
 var uploadImage = function(req, res) {
@@ -149,7 +147,7 @@ var uploadImage = function(req, res) {
     imageDescription:imageDescription,
     imageData:imageData,
     uploadTime:uploadDay
-    });
+  });
 
 
   newImage.save(function(err) {
@@ -174,6 +172,8 @@ function formatDate(date) {
 
   return day + ' ' + monthNames[monthIndex] + ' ' + year;
 }
+
+
 
 module.exports = {
   fetchHome,
