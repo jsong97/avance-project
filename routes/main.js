@@ -18,6 +18,7 @@ let User = require('../models/user');
 let Project = require('../models/project');
 let Image = require('../models/image');
 let Project_Image = require('../models/project_image');
+let Comments = require('../models/comments');
 
 router.get("/", function(req, res){
   Project.find({}, function(err, projects) {
@@ -156,20 +157,40 @@ router.get('/:username/:projectId', ensureAuthenticated, function(req, res){
     //var gfs = req.app.get("gfs");
     if (err) {
       console.log(err);
-
     } else {
       Project_Image.find({project_id: req.params.projectId}, function(err, images){
-        //gfs.files.find({_id:images.grid_id}).toArray((err, files) => {
-        if (err) {// || files.length === 0) {
-          res.render('project', {
-            images: false,
-            project: project
+        if (err) {
+          Comments.find({project_id: req.params.projectId}, function(err, comments){
+            if (err){
+              res.render('project', {
+                images: false,
+                project: project,
+                comments: false
+              });
+            } else {
+              res.render('project', {
+                images: false,
+                project: project,
+                comments: comments
+              });
+            }
           });
+
         } else {
-          // in post make sure png n jpeg only -CHANGE FOR THIS
-          res.render('project', {
-            images: images,
-            project: project
+          Comments.find({project_id: req.params.projectId}, function(err, comments){
+            if (err){
+              res.render('project', {
+                images: images,
+                comments: false,
+                project: project
+              });
+            } else {
+              res.render('project', {
+                images: images,
+                comments: comments,
+                project: project
+              });
+            }
           });
         }
       });
