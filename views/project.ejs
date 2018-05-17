@@ -129,8 +129,12 @@
           <% if (comments){ %>
             <% comments.forEach(function(comment) { %>
             <div class="comment-box">
-              <p><%=comment.body%></p>
-              <p>-<%=comment.author%></p>
+              <div class="comment-body">
+                <p><%=comment.body%></p>
+              </div>
+              <div class="comment-author">
+                <p>-<%=comment.author%></p>
+              </div>
             </div>
             <% }) %>
           <% } %>
