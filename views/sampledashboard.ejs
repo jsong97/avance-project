@@ -72,6 +72,26 @@
           <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
           <% if (user) { %>
             <li><a href="/<%=author.username%>/<%=project._id%>"><%-project.name%></a></li>
+            <% if (images){ %>
+              <p> This is the image length: <%=images.length%> </p>
+              <% images.forEach(function(image){ %>
+                <p> There's an image here </p>
+                <p> <%= image[0].name %> </p>
+                <% if (image[0].project_id == project._id){ %>
+                <div class="dashboard-image">
+                  <% if (image[0].filename != "NOFILE"){ %>
+                  <div class="dropdown-divider"></div>
+                  <div class="timeline-image" onclick="window.location='/image/<%= project._id%>/<%=image[0]._id%>';">
+                    <img src="http://localhost:3000/grid-images/<%=project._id%>/<%=image[0]._id%>/grid/<%=image[0].filename%>" alt="image alt">
+
+                   <!--<img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">
+-->
+                  </div>
+                  <% } %>
+                </div>
+                <% } %>
+              <% }); %>
+            <% } %>
           <% } else { %>
             <li><a href="/explore/<%=author.username%>/<%=project._id%>"><%-project.name%></a></li>
           <%}%>
