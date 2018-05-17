@@ -65,6 +65,7 @@
     <div class="container"><br>
       <!-- Code here -->
       <h1><%=author.name%></h1>
+      <p> Note: if the dashboard isn't loading, please reload the page :) </p>
       <% if (projects) { %>
 
         <ul>
@@ -73,10 +74,7 @@
           <% if (user) { %>
             <li><a href="/<%=author.username%>/<%=project._id%>"><%-project.name%></a></li>
             <% if (images){ %>
-              <p> This is the image length: <%=images.length%> </p>
               <% images.forEach(function(image){ %>
-                <p> There's an image here </p>
-                <p> <%= image[0].name %> </p>
                 <% if (image[0].project_id == project._id){ %>
                 <div class="dashboard-image">
                   <% if (image[0].filename != "NOFILE"){ %>

@@ -109,7 +109,6 @@ router.get('/:username', ensureAuthenticated, function(req, res){
   // res.render('myproject');
   const username = req.params.username;
   User.findOne({username: req.params.username}, (err, user) => {
-    console.log("in main get username");
     if (err) {
       console.log(err);
     }
@@ -118,23 +117,23 @@ router.get('/:username', ensureAuthenticated, function(req, res){
         if(err){
           console.log(err);
         } else{
-
-          // will need to create an array
-          projects.forEach(function(project){
-            Project_Image.find({project_id: project._id}, function(err, images){
-              if (err) {
-                console.log(err);
-                console.log("no images for this project\n");
-                all_images.push({});
-              } else {
-                console.log("pushed one set of images");
-                all_images.push(images);
-                console.log(all_images);
-              }
+          if (all_images.length < (projects.length)){
+            // will need to create an array
+            console.log(username);
+            projects.forEach(function(project){
+              Project_Image.find({project_id: project._id}, function(err, images){
+                if (err) {
+                  console.log(err);
+                  console.log("no images for this project\n");
+                  all_images.push({});
+                } else {
+                  console.log("pushed one set of images");
+                  all_images.push(images);
+                  console.log(all_images);
+                }
+              });
             });
-          });
-
-          var destinationArray = all_images.slice();
+          }
           console.log("all images is (2): ");
           console.log(all_images);
           res.render('sampledashboard', {
