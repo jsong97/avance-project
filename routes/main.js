@@ -102,36 +102,45 @@ router.get('/register', function(req, res){
 // create a user
 router.post('/register', controller.createUser);
 
+var all_images = [];
+
 // after login
 router.get('/:username', ensureAuthenticated, function(req, res){
   // res.render('myproject');
   const username = req.params.username;
-  console.log(typeof req);
-  console.log(typeof req.params);
   User.findOne({username: req.params.username}, (err, user) => {
-    console.log("in main get username");
     if (err) {
       console.log(err);
     }
     else {
       Project.find({author: req.params.username}, function(err, projects){
         if(err){
-          // console.log("first:");
-          // console.log(projects);
-          // res.render('samepledashboard', {
-          //     title: 'My Projects',
-          //
-          //     projects: false,
-          //     author: user
           console.log(err);
-          //});
         } else{
-          console.log("second:");
-          console.log(projects);
+          if (all_images.length < (projects.length)){
+            // will need to create an array
+            console.log(username);
+            projects.forEach(function(project){
+              Project_Image.find({project_id: project._id}, function(err, images){
+                if (err) {
+                  console.log(err);
+                  console.log("no images for this project\n");
+                  all_images.push({});
+                } else {
+                  console.log("pushed one set of images");
+                  all_images.push(images);
+                  console.log(all_images);
+                }
+              });
+            });
+          }
+          console.log("all images is (2): ");
+          console.log(all_images);
           res.render('sampledashboard', {
             title: 'My Projects',
             projects: projects,
-            author: user
+            author: user,
+            images: all_images
           });
         }
       });
