@@ -878,7 +878,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
 }
 
 .timeline-image{
-  height: 25em;
+  /*height: 25em;*/
   /* border: 2px solid #86b7e7; */
   border: 2px solid transparent;
   border-image: linear-gradient(0deg, #bea2e7, #9198e5);

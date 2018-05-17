@@ -87,6 +87,7 @@ router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (
   let readableTime = moment(uploadTime);
   let uploadDay = readableTime.format('DD');
   let uploadMonth = readableTime.format('MMMM');
+  let uploadYear = readableTime.format('YYYY');
 
   let newImage = new Project_Image({
     name:name,
@@ -96,6 +97,7 @@ router.post('/:username/:projectId/new/upload', upload.single('fileToUpload'), (
     filename:filename,
     uploadDay:uploadDay,
     uploadMonth:uploadMonth,
+    uploadYear:uploadYear,
     project_id:projectId
   });
 

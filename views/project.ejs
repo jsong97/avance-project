@@ -92,15 +92,21 @@
 
         <div class="page__demo">
           <div class="main-container page__container">
+            <%var curr = 0%>
             <% if (images){ %>
             <% images.forEach(function(image) { %>
             <div class="timeline_norm">
 
               <div class="timeline__group">
+                <% if (image.uploadYear && (image.uploadYear>curr)) { %>
+                <span class="timeline__year"><%-image.uploadYear%></span>
+                <%curr = image.uploadYear%>
+                <%}%>
                 <div class="timeline__box">
                   <div class="timeline__date">
                     <span class="timeline__day"><%=image.uploadDay%></span>
                     <span class="timeline__month"><%-image.uploadMonth%></span>
+
                   </div>
                   <div class="timeline__post">
                     <div class="timeline__content">
