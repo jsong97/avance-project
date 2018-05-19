@@ -20,17 +20,39 @@ let Image = require('../models/image');
 let Project_Image = require('../models/project_image');
 let Comments = require('../models/comments');
 
-router.get("/", function(req, res){
-  Project.find({}, function(err, projects) {
-      if (err){
-          console.log(err);
-      } else {
-          res.render('home', {
-              projects:projects
-          });
-      }
-  })
+var explore_project_images = [];
 
+// after login
+router.get('/', ensureAuthenticated, function(req, res){
+  Project.find({}, function(err, projects){
+    if(err){
+      console.log(err);
+    } else{
+      if (explore_project_images.length < (projects.length)){
+        // will need to create an array
+        projects.forEach(function(project){
+          Project_Image.find({project_id: project._id}, function(err, images){
+            if (err) {
+              console.log(err);
+              console.log("no images for this project\n");
+              explore_project_images.push({});
+            } else {
+              console.log("pushed one set of images");
+              explore_project_images.push(images);
+              console.log(explore_project_images);
+            }
+          });
+        });
+      }
+      console.log("exlore_project_images is (2): ");
+      console.log(explore_project_images);
+      res.render('home', {
+        title: 'My Projects',
+        projects: projects,
+        images: explore_project_images
+      });
+    }
+  });
 });
 
 router.get("/search", function(req, res){
