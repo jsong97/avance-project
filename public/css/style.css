@@ -470,6 +470,23 @@ input.submit-button {
   /*background: url("users/demo_user/images/photos_wild_final.png");*/
 }
 
+.explore-image {
+}
+
+.explore-image img {
+  display: block;
+  width: 100%;
+  height: 80%;
+}
+
+.featured-project{
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+
+
 
 /*=================== MODAL FOR EXPLORE PAGE ==================*/
 .modal-backdrop {

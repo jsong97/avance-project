@@ -110,36 +110,34 @@
       <div class="all-projects">
 
         <% if (projects) { %>
-
-          <ul>
           <% projects.forEach(function(project){ %>
-            <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
-            <% if (user) { %>
-              <li><a href="/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
-              <% if (images){ %>
-                <% images.forEach(function(image){ %>
-                  <% if (image.length > 0){ %>
-                    <% if (image[0].project_id == project._id){ %>
-                    <div class="dashboard-image">
-                      <% if (image[0].filename != "NOFILE"){ %>
-                      <div class="dropdown-divider"></div>
-                      <div class="timeline-image" onclick="window.location='/image/<%= project._id%>/<%=image[0]._id%>';">
-                        <img src="http://localhost:3000/grid-images/<%=project._id%>/<%=image[0]._id%>/grid/<%=image[0].filename%>" alt="image alt">
+          <div class="featured-project">
+            <ul>
 
-                       <!--<img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">
-    -->
-                      </div>
-                      <% } %>
+            <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
+            <li class="featured-project"><a href="/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
+            <% if (images){ %>
+              <% images.forEach(function(image){ %>
+                <% if (image.length > 0){ %>
+                  <% if (image[0].project_id == project._id){ %>
+                  <div class="dashboard-image">
+                    <% if (image[0].filename != "NOFILE"){ %>
+                    <div class="dropdown-divider"></div>
+                    <div class="explore-image" id="explore-image" onclick="window.location='/image/<%= project._id%>/<%=image[0]._id%>';">
+                      <img src="http://localhost:3000/grid-images/<%=project._id%>/<%=image[0]._id%>/grid/<%=image[0].filename%>" alt="image alt">
+
+                     <!--<img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">
+  -->
                     </div>
                     <% } %>
+                  </div>
                   <% } %>
-                <% }); %>
-              <% } %>
-            <% } else { %>
-              <li><a href="/explore/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
-            <%}%>
+                <% } %>
+              <% }); %>
+            <% } %>
+            </ul>
+          </div>
           <% }); %>
-          </ul>
         <% }%>
 
         <!--<div class="box2 openBtn" id="explore_proj_2">
@@ -194,4 +192,17 @@
     <script src="/js/explore-image.js"></script>
   </body>
   <script src="/js/explore_modal.js"></script>
+  <script type="text/javascript">
+  (function() {
+
+  var img = document.getElementById('explore-image').firstChild;
+  img.onload = function() {
+      if(img.height > img.width) {
+          img.height = '100%';
+          img.width = 'auto';
+      }
+  };
+
+  }());
+  </script>
 </html>

@@ -23,12 +23,12 @@ let Comments = require('../models/comments');
 var explore_project_images = [];
 
 // after login
-router.get('/', ensureAuthenticated, function(req, res){
+router.get('/', function(req, res){
   Project.find({}, function(err, projects){
     if(err){
       console.log(err);
     } else{
-      if (explore_project_images.length < (projects.length)){
+      if (explore_project_images.length == 0){
         // will need to create an array
         projects.forEach(function(project){
           Project_Image.find({project_id: project._id}, function(err, images){
