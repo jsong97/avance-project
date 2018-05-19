@@ -112,10 +112,8 @@
         <% if (projects) { %>
           <% projects.forEach(function(project){ %>
           <div class="featured-project">
-            <ul>
-
             <!--<li><a href="/projects/EJS PROJECT ID PROJECT NAME HERE</a></li>-->
-            <li class="featured-project"><a href="/<%=project.author%>/<%=project._id%>"><%-project.name%></a></li>
+            <div class="explore-title"><%-project.name%></div>
             <% if (images){ %>
               <% images.forEach(function(image){ %>
                 <% if (image.length > 0){ %>
@@ -135,7 +133,6 @@
                 <% } %>
               <% }); %>
             <% } %>
-            </ul>
           </div>
           <% }); %>
         <% }%>
