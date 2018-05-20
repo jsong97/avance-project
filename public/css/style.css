@@ -2,15 +2,11 @@
   border: solid red;
 } */
 
-
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-/* @font-face {
-    font-family: 'myUbuntu';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/ubuntu-font-family-0.83/Ubuntu-B.ttf') format('ttf');
-} */
+* {
+  font-family: 'Ubuntu', sans-serif!important;
+}
 
 body,html {
   height: 100%;
@@ -237,22 +233,22 @@ nav li {
 }
 
 /* ========= text styling =========*/
-.text {
+/* .text {
   font-family: Verdana;
   color: aliceblue;
 
-}
+} */
 
 .main {
   font-size: 65px;
   text-shadow: darkslategrey 1px 1px 1px;
 }
 
-.desc {
+/* .desc {
   font-family: "Trebuchet MS";
   font-size: 24px;
   text-shadow: darkslategrey 1px 1px 2px;
-}
+} */
 
 .fine {
   font-size: 10px;
@@ -311,7 +307,7 @@ input.submit-button {
   box-shadow: 0 0 5px;
   border-radius: 10px;
   background-color: white;
-  font-family: "Comic Sans MS";
+  /* font-family: "Comic Sans MS"; */
 }
 /*=========================================*/
 
@@ -364,7 +360,7 @@ input.submit-button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: Ubuntu;
+  font-family: 'Ubuntu';
 }
 
 .slide-content a {
@@ -419,7 +415,7 @@ input.submit-button {
 .all-projects p {
   width: 12em;
   background: url(//subtlepatterns.com/patterns/scribble_light.png);
-  font-family: Ubuntu;
+  font-family: 'Ubuntu';
   text-align: center;
 }
 
@@ -467,7 +463,7 @@ input.submit-button {
 .explore-title {
   margin: 1em 0 0 0;
   text-align: center;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu';
 }
 
 .explore-image {
@@ -1109,7 +1105,7 @@ I'll debug it some other time*/
 
 .comment {
   font-size: 24px;
-  font-family: Verdana;
+  /* font-family: 'Verdana'; */
 
 }
 
@@ -1215,7 +1211,7 @@ I'll debug it some other time*/
   border: 2px solid #fcfcfc;
 	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
   font-size: 2em;
-  font-family: Ubuntu, "times new roman", times, roman, serif;
+  font-family: 'Ubuntu', sans-serif;
   padding: 0 2em 0 2em;
   margin: 2em 0 2em 0;
 }
