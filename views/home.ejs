@@ -130,10 +130,7 @@
                     <% if (image[0].filename != "NOFILE"){ %>
                     <div class="dropdown-divider"></div>
                     <div class="explore-image" id="explore-image" onclick="window.location='/image/<%= project._id%>/<%=image[0]._id%>';">
-                      <img src="http://localhost:3000/grid-images/<%=project._id%>/<%=image[0]._id%>/grid/<%=image[0].filename%>" alt="image alt">
-
-                     <!--<img src="http://localhost:3000/5aed09a0f985803cb88dbc9a/grid-images/5af68e91e7f9032cec8653c8/5af6b3c2a66f5b1790afacbe/grid/8629ec98abc52685ba1661185f1d7282.jpg" alt = "test hardcode">
-  -->
+                      <img src="https://frozen-gorge-63424.herokuapp.com/grid-images/<%=project._id%>/<%=image[0]._id%>/grid/<%=image[0].filename%>" alt="image alt">
                     </div>
                     <% } %>
                   </div>

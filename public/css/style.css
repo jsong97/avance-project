@@ -898,7 +898,7 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   object-fit: scale-down;
 }
 
-.timeline-image{
+.timeline-image, .dashboard-image{
   /*height: 25em;*/
   /* border: 2px solid #86b7e7; */
   /*max-height: 100%;*/
@@ -911,6 +911,11 @@ A tutorial on how to implement and create a timeline was also followed in the cr
   /*overflow: hidden;*/
   margin-bottom: 1em;
   cursor: pointer;
+}
+
+.dashboard-image img {
+  width: 50%;
+  height: auto;
 }
 
 .timeline-edit-image{

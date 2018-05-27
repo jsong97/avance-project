@@ -81,7 +81,7 @@
       <%}%>
       <div class="display-image">
         <p>Current Image</p>
-        <img src="http://localhost:3000/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
+        <img src="https://frozen-gorge-63424.herokuapp.com/grid-images/<%=image.project_id%>/<%=image._id%>/grid/<%=image.filename%>" alt="image alt">
         </br>
         <form action="/image/<%=image.project_id%>/<%=image._id%>/edit" method="POST" enctype="multipart/form-data">
           <div id="form-group">
