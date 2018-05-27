@@ -126,7 +126,7 @@
               <% images.forEach(function(image){ %>
                 <% if (image.length > 0){ %>
                   <% if (image[0].project_id == project._id){ %>
-                  <div class="dashboard-image">
+                  <div class="timeline-image">
                     <% if (image[0].filename != "NOFILE"){ %>
                     <div class="dropdown-divider"></div>
                     <div class="explore-image" id="explore-image" onclick="window.location='/image/<%= project._id%>/<%=image[0]._id%>';">
